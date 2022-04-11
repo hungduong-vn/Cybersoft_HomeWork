@@ -1,7 +1,7 @@
 // Ex2
 /*
 - Input: 5 số thực (VD: a, b, c, d, e)
-- Output: giá trị trung bình của 5 số này (VD: GTBT)
+- Output: giá trị trung bình của 5 số này (VD: GTTB)
 - Thuật toán: GTTB = (a + b + c + d + e)/5
 */
 var a = Number(prompt("Enter 1st number"));

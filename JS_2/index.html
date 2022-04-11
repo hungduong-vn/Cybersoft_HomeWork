@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JS Homework Day 2</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row row-cols-2 row-cols-md-2">
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 1</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: Số ngày làm <br>
+                - <strong>Output</strong>: Lương nhân viên <br> 
+                - <strong>Thuật toán</strong>:
+                Lương nhân viên = Lương_ngày * Số_ngày_làm = 100.000 *
+                Số_ngày_làm
+              </p>
+              <div class="input">
+                <div class="input__item">
+                  <span>Số ngày làm: </span>
+                  <input type="text" value=15 id="input1">
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run1">Tính lương</button>
+                </div>
+              </div>
+              <div class="output" id='output1'>
+                <div class="output__item" id="output1_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 2</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: 5 số thực (VD: a, b, c, d, e) <br>
+                - <strong>Output</strong>: giá trị trung bình của 5 số này (VD: GTTB) <br> 
+                - <strong>Thuật toán</strong>: GTTB = (a + b + c + d + e)/5
+              </p>
+              <div class="input">
+                <div class="input__item">
+                  <span>a: </span>
+                  <input type="text" value=5 id="input2_1">
+                </div>
+                <div class="input__item">
+                  <span>b: </span>
+                  <input type="text" value=6 id="input2_2">
+                </div>
+                <div class="input__item">
+                  <span>c: </span>
+                  <input type="text" value=7 id="input2_3">
+                </div>
+                <div class="input__item">
+                  <span>d: </span>
+                  <input type="text" value=8 id="input2_4">
+                </div>
+                <div class="input__item">
+                  <span>e: </span>
+                  <input type="text" value=9 id="input2_5">
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run2">Tính GTTB</button>
+                </div>
+              </div>
+              <div class="output" id='output2'>
+                <div class="output__item" id="output2_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row row-cols-2 row-cols-md-2">
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 3</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: Số tiền theo USD (USD_cash) <br>
+                - <strong>Output</strong>: Số tiền theo VND (VND_cash) <br> 
+                - <strong>Thuật toán</strong>: VND_cash = USD_cash * 23500
+              </p>
+              <div class="input">
+                <div class="input__item">
+                  <input type="text" value=2 id="input3_1">
+                  <span>USD</span>
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run3">USD -> VND</button>
+                </div>
+              </div>
+              <div class="output" id='output3'>
+                <div class="output__item" id="output3_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 4</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: Chiều dài, Chiều rộng <br>
+                - <strong>Output</strong>: Chu vi, Diện tích <br> 
+                - <strong>Thuật toán</strong>: <br>
+                  + Chu vi = (dài + rộng)*2;
+                  + Diện tích = dài * rộng; 
+              </p>
+              <div class="input">
+                <div class="input__item">
+                  <span>Chiều dài</span>
+                  <input type="text" value=10 id="input4_1">
+                </div>
+                <div class="input__item">
+                  <span>Chiều rộng</span>
+                  <input type="text" value=5 id="input4_2">
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run4">Tính CV & DT</button>
+                </div>
+              </div>
+              <div class="output" id='output4'>
+                <div class="output__item" id="output4_1"></div>
+                <div class="output__item" id="output4_2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row row-cols-2 row-cols-md-2">
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 5</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: Số có 2 chữ số (VD: n) <br>
+                - <strong>Output</strong>: Tổng của 2 chữ số của n (VD: sumDigit)<br> 
+                - <strong>Thuật toán</strong>: sumDigit = n%10 + (n - n%10)/10
+              </p>
+              <div class="input">
+                <div class="input__item">
+                  <span>n: </span>
+                  <input type="text" value=83 id="input5_1">
+                  
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run5">Tính tổng 2 chữ số</button>
+                </div>
+              </div>
+              <div class="output" id='output5'>
+                <div class="output__item" id="output5_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
