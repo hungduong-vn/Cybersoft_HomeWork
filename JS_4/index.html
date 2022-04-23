@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JS Homework Day 2</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row row-cols-2 row-cols-md-2">
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 1</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: 3 số nguyên (a, b, c) <br>
+                - <strong>Output</strong>: Sắp xếp 3 số tăng dần. <br> 
+                - <strong>Thuật toán</strong>: 
+                  + result = "Dãy số tăng dần: " <br>
+                  + if (a>b) { <br>
+                    &emsp; if (a>c) { <br>
+                      &emsp; &emsp; if (b>c) { result += "c b a" } <!-- c<b<a --> <br>
+                        &emsp; &emsp; else { result += "b c a" } <br>
+                        &emsp; } <br>
+                        &emsp; else { result += "b a c" } <br>
+                    &ensp;  } <br>
+                    
+                  + else { <br>
+                    &emsp; if(a>c) { result += "c a b" } <br>
+                    &emsp; else { <br>
+                    &emsp; &emsp;  if (b>c) { result += "a c b" } <br>
+                    &emsp; &emsp; else { result += " a b c" } <br>
+                    &emsp; } <br>
+                    &ensp;} 
+
+
+              </p>
+              <div class="input">
+                <div class="input__item">
+                  <span>a: </span>
+                  <input type="text" value=10 id="input1">
+                </div>
+                <div class="input__item">
+                  <span>b: </span>
+                  <input type="text" value=20 id="input2">
+                </div>
+                <div class="input__item">
+                  <span>c: </span>
+                  <input type="text" value=-10 id="input3">
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run1">Sắp xếp tăng dần</button>
+                </div>
+              </div>
+              <div class="output" id='output1'>
+                <div class="output__item" id="output1_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 2</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: Chữ cái đại diện thành viên trong gia đình: Bố (B)/Mẹ (M)/Anh trai (A)/Em gái (E) <br>
+                - <strong>Output</strong>: Xin chào [thành viên]. <br> 
+                - <strong>Thuật toán</strong>: <br>
+                &emsp; if (input == "B") { name = "Bố"} <br>
+                &emsp; else if (input == "M") { name = "Mẹ"} <br>
+                &emsp; else if (input == "A") { name = "Anh Trai"} <br>
+                &emsp; else { name = "Em gái"} <br>
+
+              </p>
+              <div class="input">
+                <select class="form-control" id="input2_1">
+                  <option value="">Chọn thành viên</option>
+                  <option value="B">Bố</option>
+                  <option value="M">Mẹ</option>
+                  <option value="A">Anh Trai</option>
+                  <option value="E">Em Gái</option>
+                </select>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run2">Chào</button>
+                </div>
+              </div>
+              <div class="output" id='output2'>
+                <div class="output__item" id="output2_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row row-cols-2 row-cols-md-2">
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 3</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: 3 số nguyên (x, y, z) <br>
+                - <strong>Output</strong>: Số số chẵn (n_chẵn), số số lẻ (n_lẻ) <br> 
+                - <strong>Thuật toán</strong>: <br>
+                &emsp; + Với mỗi số kiểm tra: <br>
+                &emsp; &emsp; + Nếu chia hết cho 2 => n_chẵn += 1; <br>
+                &emsp; &emsp; + Nếu ko chia hết cho 2 => n_lẻ += 1; <br>
+                &emsp; + Xuất n_chẵn và n_lẻ;
+              </p>
+              <div class="input">
+                <div class="input__item">
+                  <span>x </span>
+                  <input type="text" value=2 id="input3_1">
+                </div>
+                <div class="input__item">
+                  <span>y </span>
+                  <input type="text" value=4 id="input3_2">
+                </div>
+                <div class="input__item">
+                  <span>z </span>
+                  <input type="text" value=5 id="input3_3">
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run3">Đếm</button>
+                </div>
+              </div>
+              <div class="output" id='output3'>
+                <div class="output__item" id="output3_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 4</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: 3 cạnh tam giác (AB, AC, BC) <br>
+                - <strong>Output</strong>: Loại tam giác (vuông/cân/đều/khác) <br> 
+                - <strong>Thuật toán</strong>: <br>
+                  &emsp; + Nếu AB = AC = BC => Tam giác đều <br>
+                  &emsp; + Nếu (AB = AC) hoặc (AC = BC) hoặc (AB = BC)  => Tam giác cân <br>
+                  &emsp; + Nếu AB^2 = AC^2 + BC^2 hoặc <br>
+                  &emsp; &emsp; AC^2 = AB^2 + BC^2 hoặc <br>
+                  &emsp; &emsp; BC^2 = AB^2 + AC^2 <br>
+                  &emsp; &emsp; => Tam giác vuông <br>
+                  &emsp; + Nếu ko thuộc các trường hợp trên => Tam giác là tác giam!!!.
+              </p>
+              <div class="input">
+                <div class="input__item">
+                  <span>AB </span>
+                  <input type="text" value=10 id="input4_1">
+                </div>
+                <div class="input__item">
+                  <span>AC </span>
+                  <input type="text" value=5 id="input4_2">
+                </div>
+                <div class="input__item">
+                  <span>BC </span>
+                  <input type="text" value=10 id="input4_3">
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run4">Kiểm tra tam giác</button>
+                </div>
+              </div>
+              <div class="output" id='output4'>
+                <div class="output__item" id="output4_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
