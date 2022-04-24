@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JS Homework Day 2</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row row-cols-2 row-cols-md-2">
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 1</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: ngày (d), tháng (m), năm (y) <br />
+                - <strong>Output</strong>: ngày tháng năm của ngày hôm trước
+                (dPre, mPre, yPre) và <br />
+                &emsp;&emsp;&emsp;&emsp; ngày tháng năm của ngày kế tiếp (dNext,
+                mNext, yNext) <br />
+                - <strong>Thuật toán</strong>: <br />
+                &emsp; + Nếu là các ngày giữa tháng (28 > d > 1 || <br />
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                (d = 28|| d = 29) && m != 2 || <br />
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                d = 30 && (m != i for i in {4, 6, 9, 11})): <br />
+                &emsp;&emsp; + dPre = d - 1; mPre = m; yPre = y; <br />
+                &emsp;&emsp; + dNext = d + 1; mNext = m; yNext = y; <br />
+                &emsp; + Ngược lại, xét các tháng (m) <br />
+                &emsp; + m = 1: <br />
+                &emsp;&emsp; yNext = y; <br />
+                &emsp;&emsp; + d = 1: <br />
+                &emsp;&emsp;&emsp; + dPre = 31; mPre = 12; yPre = y - 1; <br />
+                &emsp;&emsp;&emsp; + dNext = d + 1; mNext = m; <br />
+                &emsp;&emsp; + d = 31: <br />
+                &emsp;&emsp;&emsp; + dPre = d - 1; mPre = m; yPre = y; <br />
+                &emsp;&emsp;&emsp; + dNext = 1; mNext = m + 1; <br />
+                &emsp; + m = 12; <br />
+                &emsp;&emsp; yPre = y; <br />
+                &emsp;&emsp; + d = 1: <br />
+                &emsp;&emsp;&emsp; + dPre = 30; mPre = m - 1; <br />
+                &emsp;&emsp;&emsp; + dNext = d + 1; mNext = m; yNext = y; <br />
+                &emsp;&emsp; + d = 31: <br />
+                &emsp;&emsp;&emsp; + dPre = d - 1; mPre = m; <br />
+                &emsp;&emsp;&emsp; + dNext = 1; mNext = 1; yNext = y + 1; <br />
+                &emsp; + m = 2 <br />
+                &emsp;&emsp; + yPre = y; yNext = y;<br />
+                &emsp;&emsp; + d = 1: <br />
+                &emsp;&emsp;&emsp; + dPre = 31; mPre = m - 1; dNext = d + 1;
+                mNext = m; <br />
+                &emsp;&emsp; + d = 28: <br />
+                &emsp;&emsp;&emsp; + dPre = d - 1; mPre = m; dNext = 1; mNext =
+                m + 1; <br />
+                &emsp; + m = 3 <br />
+                &emsp;&emsp; yPre = y; yNext = y;<br />
+                &emsp;&emsp; + d = 1: <br />
+                &emsp;&emsp;&emsp; + dPre = 28; mPre = m - 1; dNext = d + 1;
+                mNext = m; <br />
+                &emsp;&emsp; + d = 31: <br />
+                &emsp;&emsp;&emsp; + dPre = d - 1; mPre = m; dNext = 1; mNext =
+                m + 1; <br />
+                &emsp; + m = 4 || m = 6 || m = 9 || m = 11: <br />
+                &emsp;&emsp; + yPre = y; yNext = y; <br />
+                &emsp;&emsp; + d = 1: <br />
+                &emsp;&emsp;&emsp; + dPre = 31; mPre = m - 1; dNext = d + 1;
+                mNext = m; <br />
+                &emsp;&emsp; + d = 30: <br />
+                &emsp;&emsp;&emsp; + dPre = d - 1; mPre = m; dNext = 1; mNext =
+                m + 1; <br />
+                &emsp; + Ngược Lại, Nếu là các ngày đầu/cuối của các tháng còn
+                lại (có 31 ngày): <br />
+                &emsp;&emsp; + d = 1: <br />
+                &emsp;&emsp;&emsp; + dPre = 30; mPre = m - 1; dNext = d + 1;
+                mNext = m; <br />
+                &emsp;&emsp; + d = 31: <br />
+                &emsp;&emsp;&emsp; + dPre = d - 1; mPre = m; dNext = 1; mNext =
+                m + 1; <br />
+              </p>
+              <div class="input">
+                <div class="input__item">
+                  <span>Ngày: </span>
+                  <input
+                    type="text"
+                    value="28"
+                    id="input1_1"
+                    min="1"
+                    max="30"
+                  />
+                </div>
+                <div class="input__item">
+                  <span>Tháng: </span>
+                  <input type="text" value="2" id="input1_2" min="1" max="12" />
+                </div>
+                <div class="input__item">
+                  <span>Năm: </span>
+                  <input type="text" value="2022" id="input1_3" min="1" />
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run1">
+                    Tìm ngày liền kề
+                  </button>
+                </div>
+              </div>
+              <div class="output" id="output1">
+                <div class="output__item" id="output1_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 2</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: tháng (m), năm (y)<br />
+                - <strong>Output</strong>: Số ngày của tháng m và năm y (n).
+                <br />
+                - <strong>Thuật toán</strong>: <br />
+                &emsp; + if (m === 2) { <br />
+                &emsp;&emsp; + if (y%100 === 0) <br />
+                &emsp;&emsp;&emsp; + if (y%400 === 0) => n = 29. <br />
+                &emsp;&emsp;&emsp; + else => n = 28. <br />
+                &emsp;&emsp; + if (y%4 === 0) => n = 29. <br />
+                &emsp;&emsp; + else => n = 28. <br />
+                } <br />
+                &emsp; + if (m === 4 || m === 6 || m === 9 || m === 11) => n =
+                30. <br />
+                &emsp; + else => n = 31.
+              </p>
+              <div class="input">
+                <div class="input__item">
+                  <span>Tháng: </span>
+                  <input type="text" value="2" id="input2_1" min="1" max="12" />
+                </div>
+                <div class="input__item">
+                  <span>Năm: </span>
+                  <input type="text" value="2022" id="input2_2" min="1" />
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run2">Tính số ngày</button>
+                </div>
+              </div>
+              <div class="output" id="output2">
+                <div class="output__item" id="output2_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row row-cols-2 row-cols-md-2">
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 3</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: Số có 3 chữ số (n)<br />
+                - <strong>Output</strong>: Cách đọc số đó.
+                <br />
+                - <strong>Thuật toán</strong>: <br />
+                &emsp; + Tách n thành chữ số hàng trăm (h), hàng chục (t) và
+                hàng đơn vị (u). <br />
+                &emsp; + Viết hàm đọc 1 chữ số từ 1->9 (x=1 => "Một", x=2 =>
+                "Hai"...), gọi tên hàm là spell_1(x). <br />
+                &emsp; + Cho KQ = spell_1(h) + " trăm"; <br />
+                &emsp; + Viết hàm đọc số hàng chục, 1 chữ số từ 0 -> 9 (x=0 =>
+                "Lẻ", x=1 => "Mười", x=2 => "Hai Mươi"...), gọi tên hàm là
+                spellTen(x). <br />
+                &emsp; + Nếu (u === 0 && t === 0): <br />
+                &emsp;&emsp; + Nếu (t === 0): break; <br />
+                &emsp;&emsp; + Ngược lại, (t !== 0): KQ += spellTen(t); &emsp; +
+                Nếu (u === 5): KQ += spellTen(t) + " lăm";<br />
+                &emsp; + Else: KQ += spellTen(t) + spell_1(u);<br />
+              </p>
+              <div class="input">
+                <div class="input__item">
+                  <span>Nhập số có 3 chữ số: </span>
+                  <input type="text" value="123" id="input3_1" />
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run3">Đọc số</button>
+                </div>
+              </div>
+              <div class="output" id="output3">
+                <div class="output__item" id="output3_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 4</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: &emsp; + Tên 3 SV (A, B, C) <br />
+                &emsp; + Toạ độ 3 SV ((Ax, Ay), (Bx, By), (Cx, Cy)) <br />
+                &emsp; + Toạ độ ĐH (Ux, Uy) <br />
+                - <strong>Output</strong>: Tên SV xa trường ĐH nhất.<br />
+                - <strong>Thuật toán</strong>: <br />
+                &emsp; + Tính khoảng cách của các SV tới ĐH. (Ad, Bd, Cd) <br />
+                &emsp; + So sánh từng đôi một để tìm ra khoảng cách lớn nhất: <br>
+                &emsp;&emsp; + if (Bd >= Ad): <br>
+                &emsp;&emsp;&emsp; + if (Cd >= Bd): C xa ĐH nhất.<br>
+                &emsp;&emsp;&emsp; + else: B xa ĐH nhất.<br>
+                &emsp;&emsp; + else:<br>
+                &emsp;&emsp;&emsp; + if (Ad => Cd): A xa ĐH nhất.<br>
+                &emsp;&emsp;&emsp; + else: C xa ĐH nhất.<br>
+                
+              </p>
+              <div class="input">
+                <div class="row">
+                  <div class="input__item col-lg-6">
+                    <span>Ax </span>
+                    <input type="text" value="10" id="input4_1" />
+                  </div>
+                  <div class="input__item col-lg-6">
+                    <span>Ay </span>
+                    <input type="text" value="20" id="input4_2" />
+                  </div>
+                  <div class="input__item col-lg-6">
+                    <span>Bx </span>
+                    <input type="text" value="0" id="input4_3" />
+                  </div>
+                  <div class="input__item col-lg-6">
+                    <span>By </span>
+                    <input type="text" value="-10" id="input4_4" />
+                  </div>
+                  <div class="input__item col-lg-6">
+                    <span>Cx </span>
+                    <input type="text" value="0" id="input4_5" />
+                  </div>
+                  <div class="input__item col-lg-6">
+                    <span>Cy </span>
+                    <input type="text" value="0" id="input4_6" />
+                  </div>
+                  <div class="input__item col-lg-6">
+                    <span>Ux </span>
+                    <input type="text" value="10" id="input4_7" />
+                  </div>
+                  <div class="input__item col-lg-6">
+                    <span>Uy </span>
+                    <input type="text" value="10" id="input4_8" />
+                  </div>
+                </div>
+                
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run4">
+                    Tìm SV xa ĐH nhất
+                  </button>
+                </div>
+              </div>
+              <div class="output" id="output4">
+                <div class="output__item" id="output4_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
