@@ -30,3 +30,6 @@ html, body{
 #ex1 .col-lg-4 input{
     width: 50%;
 }
+.hide{
+    display: none;
+}

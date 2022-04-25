@@ -16,7 +16,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="container">
@@ -26,45 +26,68 @@
             <div class="card-body">
               <h5 class="card-title">Bài 1</h5>
               <p class="card-text">
-                - <strong>Input</strong>: <br>
-                &emsp;&emsp; + Điểm chuẩn (diemChuan). <br>
-                &emsp;&emsp; + Điểm 3 môn thi (diem_1, diem_2, diem_3). <br>
-                &emsp;&emsp; + Khu vực ưu tiên (kv = i for i in {A, B, C, X}). <br>
-                &emsp;&emsp; + Đối tượng ưu tiên (doiTuong = j in {1, 2, 3, 0}). <br>
-                - <strong>Output</strong>: <br>
-                &emsp;&emsp; + Kết quả đậu/rớt <br>
-                &emsp;&emsp; + Tổng số điểm đạt được <br> 
-                - <strong>Thuật toán</strong>:  <br>
-                &emsp; + Tính tổng điểm thi 3 môn: diemThi = diem_1 + diem_2 + diem_3; <br>
-                &emsp; + Tính điểm khu vực (diemKV): <br>
-                &emsp;&emsp; + If kv = A => diemKV = 2; <br>
-                &emsp;&emsp; + If kv = B => diemKV = 1; <br>
-                &emsp;&emsp; + If kv = C => diemKV = 0.5; <br>
-                &emsp;&emsp; + If kv = X => diemKV = 0; <br>
-                &emsp; + Tính điểm đối tượng ưu tiên (diemDT): <br>
-                &emsp;&emsp; + If doiTuong = 1 => diemDT = 2.5; <br>
-                &emsp;&emsp; + If doiTuong = 2 => diemDT = 1.5; <br>
-                &emsp;&emsp; + If doiTuong = 3 => diemDT = 1; <br>
-                &emsp;&emsp; + If doiTuong = 0 => diemDT = 0; <br>
-                &emsp; + Tính điểm tổng kết (diemTK = diemThi + diemKV + diemDT): <br>
+                - <strong>Input</strong>: <br />
+                &emsp;&emsp; + Điểm chuẩn (diemChuan). <br />
+                &emsp;&emsp; + Điểm 3 môn thi (diem_1, diem_2, diem_3). <br />
+                &emsp;&emsp; + Khu vực ưu tiên (kv = i for i in {A, B, C, X}).
+                <br />
+                &emsp;&emsp; + Đối tượng ưu tiên (doiTuong = j in {1, 2, 3, 0}).
+                <br />
+                - <strong>Output</strong>: <br />
+                &emsp;&emsp; + Kết quả đậu/rớt <br />
+                &emsp;&emsp; + Tổng số điểm đạt được <br />
+                - <strong>Thuật toán</strong>: <br />
+                &emsp; + Tính tổng điểm thi 3 môn: diemThi = diem_1 + diem_2 +
+                diem_3; <br />
+                &emsp; + Tính điểm khu vực (diemKV): <br />
+                &emsp;&emsp; + If kv = A => diemKV = 2; <br />
+                &emsp;&emsp; + If kv = B => diemKV = 1; <br />
+                &emsp;&emsp; + If kv = C => diemKV = 0.5; <br />
+                &emsp;&emsp; + If kv = X => diemKV = 0; <br />
+                &emsp; + Tính điểm đối tượng ưu tiên (diemDT): <br />
+                &emsp;&emsp; + If doiTuong = 1 => diemDT = 2.5; <br />
+                &emsp;&emsp; + If doiTuong = 2 => diemDT = 1.5; <br />
+                &emsp;&emsp; + If doiTuong = 3 => diemDT = 1; <br />
+                &emsp;&emsp; + If doiTuong = 0 => diemDT = 0; <br />
+                &emsp; + Tính điểm tổng kết (diemTK = diemThi + diemKV +
+                diemDT): <br />
                 &emsp; + So điểm chuẩn => đậu/rớt
               </p>
               <div class="input" id="ex1">
                 <div class="input__item">
                   <span>Điểm chuẩn: </span>
-                  <input type="number" value=26.5 id="input1_1">
+                  <input type="number" value="26.5" id="input1_1" />
                 </div>
                 <div class="row">
                   <div class="input__item col-lg-4">
                     <span>Môn 1: </span>
-                    <input type="number" value=8 id="input1_2" min="0" max="10">
+                    <input
+                      type="number"
+                      value="8"
+                      id="input1_2"
+                      min="0"
+                      max="10"
+                    />
                   </div>
                   <div class="input__item col-lg-4">
                     <span>Môn 2: </span>
-                    <input type="number" value=8.5 id="input1_3" min="0" max="10">
-                  </div><div class="input__item col-lg-4">
+                    <input
+                      type="number"
+                      value="8.5"
+                      id="input1_3"
+                      min="0"
+                      max="10"
+                    />
+                  </div>
+                  <div class="input__item col-lg-4">
                     <span>Môn 3: </span>
-                    <input type="number" value=10 id="input1_4" min="0" max="10">
+                    <input
+                      type="number"
+                      value="10"
+                      id="input1_4"
+                      min="0"
+                      max="10"
+                    />
                   </div>
                 </div>
                 <div class="input__item">
@@ -89,7 +112,7 @@
                   <button class="btn btn-dark" id="run1">Kết quả thi</button>
                 </div>
               </div>
-              <div class="output" id='output1'>
+              <div class="output" id="output1">
                 <div class="output__item" id="output1_1"></div>
               </div>
             </div>
@@ -100,25 +123,29 @@
             <div class="card-body">
               <h5 class="card-title">Bài 2</h5>
               <p class="card-text">
-                - <strong>Input</strong>: Số Kw điện (nKW) <br>
-                - <strong>Output</strong>: Tiền điện tương ứng (bill) <br> 
-                - <strong>Thuật toán</strong>: <br>
-                &emsp; if (50 >= nKW): bill = nKW * 500; <br>
-                &emsp; if (100 >= nKW > 50): bill = 50 * 500 + (nKW - 50) * 650; <br>
-                &emsp; if (200 >= nKW > 100): bill = 50 * 500 + 50 * 650 + (nKW - 100) * 850; <br>
-                &emsp; if (350 >= nKW > 200): bill = 50 * 500 + 50 * 650 + 100 * 850 + (nKW - 200) * 1100; <br>
-                &emsp; else: bill = 50 * 500 + 50 * 650 + 100 * 850 + 200 * 1100 + (nKW - 350) * 1300; <br>
+                - <strong>Input</strong>: Số Kw điện (nKW) <br />
+                - <strong>Output</strong>: Tiền điện tương ứng (bill) <br />
+                - <strong>Thuật toán</strong>: <br />
+                &emsp; if (50 >= nKW): bill = nKW * 500; <br />
+                &emsp; if (100 >= nKW > 50): bill = 50 * 500 + (nKW - 50) * 650;
+                <br />
+                &emsp; if (200 >= nKW > 100): bill = 50 * 500 + 50 * 650 + (nKW
+                - 100) * 850; <br />
+                &emsp; if (350 >= nKW > 200): bill = 50 * 500 + 50 * 650 + 100 *
+                850 + (nKW - 200) * 1100; <br />
+                &emsp; else: bill = 50 * 500 + 50 * 650 + 100 * 850 + 200 * 1100
+                + (nKW - 350) * 1300; <br />
               </p>
               <div class="input">
                 <div class="input__item">
                   <span>Số điện (kw) </span>
-                  <input type="text" value=200 id="input2_1">
+                  <input type="text" value="200" id="input2_1" />
                 </div>
                 <div class="run__btn">
                   <button class="btn btn-dark" id="run2">Tính tiền điện</button>
                 </div>
               </div>
-              <div class="output" id='output2'>
+              <div class="output" id="output2">
                 <div class="output__item" id="output2_1"></div>
               </div>
             </div>
@@ -131,32 +158,50 @@
             <div class="card-body">
               <h5 class="card-title">Bài 3</h5>
               <p class="card-text">
-                - <strong>Input</strong>: 3 số nguyên (x, y, z) <br>
-                - <strong>Output</strong>: Số số chẵn (n_chẵn), số số lẻ (n_lẻ) <br> 
-                - <strong>Thuật toán</strong>: <br>
-                &emsp; + Với mỗi số kiểm tra: <br>
-                &emsp; &emsp; + Nếu chia hết cho 2 => n_chẵn += 1; <br>
-                &emsp; &emsp; + Nếu ko chia hết cho 2 => n_lẻ += 1; <br>
-                &emsp; + Xuất n_chẵn và n_lẻ;
+                - <strong>Input</strong>: <br />
+                &emsp; + Tổng thu nhập năm (income). &emsp; + Số người phụ thuộc
+                (depend). - <strong>Output</strong>: Thuế thu nhập cá nhân (tax)
+                <br />
+                - <strong>Thuật toán</strong>: <br />
+                &emsp; + Tính thu nhập chịu thuế: <br />
+                &emsp;&emsp; incomeTax = income - 4tr - depend * 1.6tr. <br />
+                &emsp; &emsp; + if 60tr >= incomeTax: tax = incomeTax * 0.05;
+                <br />
+                &emsp; &emsp; + if 120tr >= incomeTax > 60tr: <br />
+                tax = 60tr * 0.05 + (incomeTax - 60tr) * 0.1; <br />
+                &emsp; &emsp; + if 210tr >= incomeTax > 120tr: <br />
+                tax = 60tr * 0.05 + 60tr * 0.1 + (incomeTax - 120tr) * 0.15;
+                <br />
+                &emsp; &emsp; + if 384tr >= incomeTax > 210tr: <br />
+                tax = 60tr * 0.05 + 60tr * 0.1 + 90tr * 0.15 + <br />
+                &emsp;&emsp;&emsp;(incomeTax - 210tr) * 0.2; <br />
+                &emsp; &emsp; + if 624tr >= incomeTax > 384tr: <br />
+                tax = 60tr * 0.05 + 60tr * 0.1 + 90tr * 0.15 + 174tr * 0.2 +<br />
+                &emsp;&emsp;&emsp;(incomeTax - 210tr) * 0.25; <br />
+                &emsp; &emsp; + if 960tr >= incomeTax > 624tr: <br />
+                tax = 60tr * 0.05 + 60tr * 0.1 + 90tr * 0.15 + 174tr * 0.2 +
+                258tr * 0.25<br />
+                &emsp;&emsp;&emsp;+ (incomeTax - 624tr) * 0.3; <br />
+                &emsp; &emsp; + if incomeTax > 960tr: <br />
+                tax = 60tr * 0.05 + 60tr * 0.1 + 90tr * 0.15 + 174tr * 0.2 +
+                258tr * 0.25<br />
+                &emsp;&emsp;&emsp;+ 336tr * 0.3 + (incomeTax - 960tr) * 0.35;
+                <br />
               </p>
               <div class="input">
                 <div class="input__item">
-                  <span>x </span>
-                  <input type="text" value=2 id="input3_1">
+                  <span>Thu nhập cả năm (triệu): </span>
+                  <input type="number" value="240" id="input3_1" />
                 </div>
                 <div class="input__item">
-                  <span>y </span>
-                  <input type="text" value=4 id="input3_2">
-                </div>
-                <div class="input__item">
-                  <span>z </span>
-                  <input type="text" value=5 id="input3_3">
+                  <span>Số người phụ thuộc: </span>
+                  <input type="text" value="3" id="input3_2" />
                 </div>
                 <div class="run__btn">
-                  <button class="btn btn-dark" id="run3">Đếm</button>
+                  <button class="btn btn-dark" id="run3">Tính thuế TNCN</button>
                 </div>
               </div>
-              <div class="output" id='output3'>
+              <div class="output" id="output3">
                 <div class="output__item" id="output3_1"></div>
               </div>
             </div>
@@ -167,35 +212,57 @@
             <div class="card-body">
               <h5 class="card-title">Bài 4</h5>
               <p class="card-text">
-                - <strong>Input</strong>: 3 cạnh tam giác (AB, AC, BC) <br>
-                - <strong>Output</strong>: Loại tam giác (vuông/cân/đều/khác) <br> 
-                - <strong>Thuật toán</strong>: <br>
-                  &emsp; + Nếu AB = AC = BC => Tam giác đều <br>
-                  &emsp; + Nếu (AB = AC) hoặc (AC = BC) hoặc (AB = BC)  => Tam giác cân <br>
-                  &emsp; + Nếu AB^2 = AC^2 + BC^2 hoặc <br>
-                  &emsp; &emsp; AC^2 = AB^2 + BC^2 hoặc <br>
-                  &emsp; &emsp; BC^2 = AB^2 + AC^2 <br>
-                  &emsp; &emsp; => Tam giác vuông <br>
-                  &emsp; + Nếu ko thuộc các trường hợp trên => Tam giác là tác giam!!!.
+                - <strong>Input</strong>: <br />
+                &emsp; + Mã KH. <br />
+                &emsp; + Số kênh cao cấp. (nChannel) <br />
+                &emsp; + Loại KH (cá nhân/ doanh nghiệp). <br />
+                &emsp;&emsp; + Nếu là doanh nghiêp => Nhập thêm số kết nối
+                (nLink)<br />
+                - <strong>Output</strong>: Hoá Đơn:<br />
+                &emsp; + Mã KH & Tiền cáp. <br />
+                - <strong>Thuật toán</strong>: <br />
+                &emsp; + Nếu là KH cá nhân: Tiền cáp = 4.5 + 20.5 + nChannel *
+                7.5. <br />
+                &emsp; + Nếu là KH cá nhân: <br />
+                &emsp;&emsp; + Nếu nLink > 10: <br />
+                &emsp;&emsp;&emsp; + Tiền cáp = 15 + 75 + (nLink - 10) * 5 +
+                nChannel * 50. <br />
+                &emsp;&emsp; + Ngược lại: Tiền cáp = 15 + 75 + nChannel * 50.
+                <br />
               </p>
               <div class="input">
                 <div class="input__item">
-                  <span>AB </span>
-                  <input type="text" value=10 id="input4_1">
+                  <span>Mã KH </span>
+                  <input type="text" value="0001" id="input4_1" />
                 </div>
                 <div class="input__item">
-                  <span>AC </span>
-                  <input type="text" value=5 id="input4_2">
+                  <span>Số kênh cao cấp </span>
+                  <input type="text" value="20" id="input4_2" />
                 </div>
                 <div class="input__item">
-                  <span>BC </span>
-                  <input type="text" value=10 id="input4_3">
+                  <div class="form-group">
+                    <label for="">Loại KH </label>
+                    <select
+                      class="form-control"
+                      name=""
+                      id="input4_3"
+                      style="display: inline; width: 50%"
+                      onchange="showLink()"
+                    >
+                      <option value="Cá nhân">Cá nhân</option>
+                      <option value="Doanh Nghiệp">Doanh Nghiệp</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="input__item hide" id="inputItem4_4">
+                  <span>Số kết nối</span>
+                  <input type="text" value="10" id="input4_4" disabled />
                 </div>
                 <div class="run__btn">
-                  <button class="btn btn-dark" id="run4">Kiểm tra tam giác</button>
+                  <button class="btn btn-dark" id="run4">Tính tiền cáp</button>
                 </div>
               </div>
-              <div class="output" id='output4'>
+              <div class="output" id="output4">
                 <div class="output__item" id="output4_1"></div>
               </div>
             </div>
@@ -206,6 +273,19 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+      function showLink() {
+        var customerType = document.getElementById("input4_3").value;
+        var links = document.getElementById("inputItem4_4");
+        if (customerType == "Doanh Nghiệp") {
+          links.style.display = "block";
+          document.getElementById("input4_4").disabled = false;
+        } else {
+          links.style.display = "none";
+          document.getElementById("input4_4").disabled = true;
+        }
+      }
+    </script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
