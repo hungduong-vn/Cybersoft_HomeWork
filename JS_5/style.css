@@ -1,0 +1,32 @@
+html, body{
+    box-sizing: border-box;
+}
+.card-body, .card{
+    height: 100%;
+}
+.container{
+    margin: 30px auto;
+}
+.card-text, .showResult, .input {
+    border-top: 1px solid rgba(128, 128, 128, 0.3);
+    padding: 20px 0;
+    line-height: 2rem;
+}
+/* .card-text{
+    height: 45%;
+} */
+.input__item{
+    padding: 10px 0;
+}
+.run__btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0 0;
+}
+#ex1 .col-lg-4{
+    text-align: center;
+}
+#ex1 .col-lg-4 input{
+    width: 50%;
+}

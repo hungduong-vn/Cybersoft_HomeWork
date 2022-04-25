@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JS Homework Day 2</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row row-cols-2 row-cols-md-2">
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 1</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: <br>
+                &emsp;&emsp; + Điểm chuẩn (diemChuan). <br>
+                &emsp;&emsp; + Điểm 3 môn thi (diem_1, diem_2, diem_3). <br>
+                &emsp;&emsp; + Khu vực ưu tiên (kv = i for i in {A, B, C, X}). <br>
+                &emsp;&emsp; + Đối tượng ưu tiên (doiTuong = j in {1, 2, 3, 0}). <br>
+                - <strong>Output</strong>: <br>
+                &emsp;&emsp; + Kết quả đậu/rớt <br>
+                &emsp;&emsp; + Tổng số điểm đạt được <br> 
+                - <strong>Thuật toán</strong>:  <br>
+                &emsp; + Tính tổng điểm thi 3 môn: diemThi = diem_1 + diem_2 + diem_3; <br>
+                &emsp; + Tính điểm khu vực (diemKV): <br>
+                &emsp;&emsp; + If kv = A => diemKV = 2; <br>
+                &emsp;&emsp; + If kv = B => diemKV = 1; <br>
+                &emsp;&emsp; + If kv = C => diemKV = 0.5; <br>
+                &emsp;&emsp; + If kv = X => diemKV = 0; <br>
+                &emsp; + Tính điểm đối tượng ưu tiên (diemDT): <br>
+                &emsp;&emsp; + If doiTuong = 1 => diemDT = 2.5; <br>
+                &emsp;&emsp; + If doiTuong = 2 => diemDT = 1.5; <br>
+                &emsp;&emsp; + If doiTuong = 3 => diemDT = 1; <br>
+                &emsp;&emsp; + If doiTuong = 0 => diemDT = 0; <br>
+                &emsp; + Tính điểm tổng kết (diemTK = diemThi + diemKV + diemDT): <br>
+                &emsp; + So điểm chuẩn => đậu/rớt
+              </p>
+              <div class="input" id="ex1">
+                <div class="input__item">
+                  <span>Điểm chuẩn: </span>
+                  <input type="number" value=26.5 id="input1_1">
+                </div>
+                <div class="row">
+                  <div class="input__item col-lg-4">
+                    <span>Môn 1: </span>
+                    <input type="number" value=8 id="input1_2" min="0" max="10">
+                  </div>
+                  <div class="input__item col-lg-4">
+                    <span>Môn 2: </span>
+                    <input type="number" value=8.5 id="input1_3" min="0" max="10">
+                  </div><div class="input__item col-lg-4">
+                    <span>Môn 3: </span>
+                    <input type="number" value=10 id="input1_4" min="0" max="10">
+                  </div>
+                </div>
+                <div class="input__item">
+                  <span>Khu vực ưu tiên: </span>
+                  <select name="form-control" id="input1_5">
+                    <option value="X">Không thuộc khu vực ưu tiên</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                  </select>
+                </div>
+                <div class="input__item">
+                  <span>Đối tượng ưu tiên: </span>
+                  <select name="form-control" id="input1_6">
+                    <option value="0">Không thuộc đối tượng ưu tiên</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run1">Kết quả thi</button>
+                </div>
+              </div>
+              <div class="output" id='output1'>
+                <div class="output__item" id="output1_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 2</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: Số Kw điện (nKW) <br>
+                - <strong>Output</strong>: Tiền điện tương ứng (bill) <br> 
+                - <strong>Thuật toán</strong>: <br>
+                &emsp; if (50 >= nKW): bill = nKW * 500; <br>
+                &emsp; if (100 >= nKW > 50): bill = 50 * 500 + (nKW - 50) * 650; <br>
+                &emsp; if (200 >= nKW > 100): bill = 50 * 500 + 50 * 650 + (nKW - 100) * 850; <br>
+                &emsp; if (350 >= nKW > 200): bill = 50 * 500 + 50 * 650 + 100 * 850 + (nKW - 200) * 1100; <br>
+                &emsp; else: bill = 50 * 500 + 50 * 650 + 100 * 850 + 200 * 1100 + (nKW - 350) * 1300; <br>
+              </p>
+              <div class="input">
+                <div class="input__item">
+                  <span>Số điện (kw) </span>
+                  <input type="text" value=200 id="input2_1">
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run2">Tính tiền điện</button>
+                </div>
+              </div>
+              <div class="output" id='output2'>
+                <div class="output__item" id="output2_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row row-cols-2 row-cols-md-2">
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 3</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: 3 số nguyên (x, y, z) <br>
+                - <strong>Output</strong>: Số số chẵn (n_chẵn), số số lẻ (n_lẻ) <br> 
+                - <strong>Thuật toán</strong>: <br>
+                &emsp; + Với mỗi số kiểm tra: <br>
+                &emsp; &emsp; + Nếu chia hết cho 2 => n_chẵn += 1; <br>
+                &emsp; &emsp; + Nếu ko chia hết cho 2 => n_lẻ += 1; <br>
+                &emsp; + Xuất n_chẵn và n_lẻ;
+              </p>
+              <div class="input">
+                <div class="input__item">
+                  <span>x </span>
+                  <input type="text" value=2 id="input3_1">
+                </div>
+                <div class="input__item">
+                  <span>y </span>
+                  <input type="text" value=4 id="input3_2">
+                </div>
+                <div class="input__item">
+                  <span>z </span>
+                  <input type="text" value=5 id="input3_3">
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run3">Đếm</button>
+                </div>
+              </div>
+              <div class="output" id='output3'>
+                <div class="output__item" id="output3_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 4</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: 3 cạnh tam giác (AB, AC, BC) <br>
+                - <strong>Output</strong>: Loại tam giác (vuông/cân/đều/khác) <br> 
+                - <strong>Thuật toán</strong>: <br>
+                  &emsp; + Nếu AB = AC = BC => Tam giác đều <br>
+                  &emsp; + Nếu (AB = AC) hoặc (AC = BC) hoặc (AB = BC)  => Tam giác cân <br>
+                  &emsp; + Nếu AB^2 = AC^2 + BC^2 hoặc <br>
+                  &emsp; &emsp; AC^2 = AB^2 + BC^2 hoặc <br>
+                  &emsp; &emsp; BC^2 = AB^2 + AC^2 <br>
+                  &emsp; &emsp; => Tam giác vuông <br>
+                  &emsp; + Nếu ko thuộc các trường hợp trên => Tam giác là tác giam!!!.
+              </p>
+              <div class="input">
+                <div class="input__item">
+                  <span>AB </span>
+                  <input type="text" value=10 id="input4_1">
+                </div>
+                <div class="input__item">
+                  <span>AC </span>
+                  <input type="text" value=5 id="input4_2">
+                </div>
+                <div class="input__item">
+                  <span>BC </span>
+                  <input type="text" value=10 id="input4_3">
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run4">Kiểm tra tam giác</button>
+                </div>
+              </div>
+              <div class="output" id='output4'>
+                <div class="output__item" id="output4_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
