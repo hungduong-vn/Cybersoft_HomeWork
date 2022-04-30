@@ -137,6 +137,42 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bài 5</h5>
+              <p class="card-text">
+                - <strong>Input</strong>: Số nguyên n <br>
+                - <strong>Output</strong>: Tất cả số nguyên tố bé hơn n <br> 
+                - <strong>Thuật toán</strong>: <br>
+                &emsp; + Gọi chuỗi kết quả là kq="". <br>
+                &emsp; + Nếu n nhỏ hơn 2 => kết quả là rỗng. <br>
+                &emsp; + Nếu n bằng 2 => kq += 2. <br>
+                &emsp; + Gọi biến đếm cho mỗi lần lặp là i. <br>
+                &emsp; + Lặp với i từ 3 -> n: <br>
+                &emsp;&emsp; + Gọi biến cờ hiệu là flag = true; <br>
+                &emsp;&emsp; + Lặp với j từ 2 -> i-1: <br>
+                &emsp;&emsp;&emsp; + Nếu i%j === 0: flag = false; break; <br>
+                &emsp;&emsp; + Nếu flag !== false: kq += i; <br>
+                &emsp; + Dừng chương trình và xuất kq.
+              </p>
+              <div class="input">
+                <div class="input__item">
+                  <span>n </span>
+                  <input type="text" value=20 id="input5_1">
+                </div>
+                <div class="run__btn">
+                  <button class="btn btn-dark" id="run5">Tìm các số nguyên tố</button>
+                </div>
+              </div>
+              <div class="output" id='output3'>
+                <div class="output__item" id="output5_1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Optional JavaScript -->
