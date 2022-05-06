@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <div class="row justify-content-center">
+        <div class="inputArray">
+          <div class="input my-4 d-flex align-item-center">
+            <input type="number" />
+            <button class="btn btn-dark ml-2" id="addNum">Thêm số</button>
+          </div>
+          <div class="col-12 showArray">
+            <span>Mảng: </span>
+            <span class="array"></span>
+          </div>
+        </div>
+        <div id="accordian" role="tablist" aria-multiselectable="true">
+          <div class="card">
+            <a
+              data-toggle="collapse"
+              data-parent="#accordian"
+              href="#bai1"
+              aria-expanded="true"
+              aria-controls="bai1"
+            >
+              <div class="card-header" role="tab" id="bai1Head">
+                <h5 class="mb-0">1/ Tổng số dương</h5>
+              </div>
+            </a>
+            <div
+              id="bai1"
+              class="collapse in"
+              role="tabpanel"
+              aria-labelledby="bai1"
+            >
+              <div class="card-body">
+                <button class="btn btn-dark" id="run1">Tính tổng</button>
+                <div class="output">
+                  <span>Tổng số dương: </span>
+                  <span class="result"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <a data-toggle="collapse" data-parent="#accordian" href="#bai2">
+              <div class="card-header" role="tab" id="bai2Head">
+                <h5 class="mb-0">2/ Đếm số dương</h5>
+              </div>
+            </a>
+            <div
+              id="bai2"
+              class="collapse in"
+              role="tabpanel"
+              aria-labelledby="bai2"
+            >
+              <div class="card-body">
+                <button class="btn btn-dark" id="run2">Tính tổng</button>
+                <div class="output">
+                  <span>Tổng số số dương: </span>
+                  <span class="result"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <a data-toggle="collapse" data-parent="#accordian" href="#bai3">
+              <div class="card-header" role="tab" id="bai3Head">
+                <h5 class="mb-0">3/ Tìm số nhỏ nhất</h5>
+              </div>
+            </a>
+            <div
+              id="bai3"
+              class="collapse in"
+              role="tabpanel"
+              aria-labelledby="bai3"
+            >
+              <div class="card-body">
+                <button class="btn btn-dark" id="run3">Tìm số nhỏ nhất</button>
+                <div class="output">
+                  <span>Số nhỏ nhất: </span>
+                  <span class="result"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <a data-toggle="collapse" data-parent="#accordian" href="#bai4">
+              <div class="card-header" role="tab" id="bai4Head">
+                <h5 class="mb-0">4/ Tìm số dương nhỏ nhất</h5>
+              </div>
+            </a>
+            <div
+              id="bai4"
+              class="collapse in"
+              role="tabpanel"
+              aria-labelledby="bai4"
+            >
+              <div class="card-body">
+                <button class="btn btn-dark" id="run4">
+                  Tìm số dương nhỏ nhất
+                </button>
+                <div class="output">
+                  <span>Số dương nhỏ nhất: </span>
+                  <span class="result"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <a data-toggle="collapse" data-parent="#accordian" href="#bai5">
+              <div class="card-header" role="tab" id="bai5Head">
+                <h5 class="mb-0">5/ Tìm số chẵn cuối cùng trong mảng</h5>
+              </div>
+            </a>
+            <div id="bai5" class="collapse in" role="tabpanel">
+              <div class="card-body">
+                <button class="btn btn-dark" id="run5">
+                  Tìm số chẵn cuối cùng trong mảng
+                </button>
+                <div class="output">
+                  <span>Số chẵn cuối cùng trong mảng: </span>
+                  <span class="result"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <a data-toggle="collapse" data-parent="#accordian" href="#bai6">
+              <div class="card-header" role="tab" id="bai6Head">
+                <h5 class="mb-0">6/ Đổi chỗ 2 số trong mảng</h5>
+              </div>
+            </a>
+            <div id="bai6" class="collapse in" role="tabpanel">
+              <div class="card-body">
+                <div class="input6">
+                  <label>Vị trí số thứ 1: </label>
+                  <input type="number" value="1" id="input6_1" />
+                  <label>Vị trí số thứ 2: </label>
+                  <input type="number" value="2" id="input6_2" />
+                </div>
+                <button class="btn btn-dark" id="run6">Đổi chỗ</button>
+                <div class="output">
+                  <span>Mảng sau khi đổi chỗ: </span>
+                  <span class="result"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <a data-toggle="collapse" data-parent="#accordian" href="#bai7">
+              <div class="card-header" role="tab" id="bai7Head">
+                <h5 class="mb-0">7/ Sắp xếp mảng tăng dần</h5>
+              </div>
+            </a>
+            <div id="bai7" class="collapse in" role="tabpanel">
+              <div class="card-body">
+                <button class="btn btn-dark" id="run7">
+                  Sắp xếp mảng tăng dần
+                </button>
+                <div class="output">
+                  <span>Mảng sau khi sắp xếp tăng dần: </span>
+                  <span class="result"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <a data-toggle="collapse" data-parent="#accordian" href="#bai8">
+              <div class="card-header" role="tab" id="bai8Head">
+                <h5 class="mb-0">8/ Tìm số nguyên tố đầu tiên trong mảng</h5>
+              </div>
+            </a>
+            <div id="bai8" class="collapse in" role="tabpanel">
+              <div class="card-body">
+                <button class="btn btn-dark" id="run8">
+                  Tìm số nguyên tố đầu tiên trong mảng
+                </button>
+                <div class="output">
+                  <span>Số nguyên tố đầu tiên trong mảng: </span>
+                  <span class="result"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <a data-toggle="collapse" data-parent="#accordian" href="#bai9">
+              <div class="card-header" role="tab" id="bai9Head">
+                <h5 class="mb-0">9/ Đếm số nguyên trong mảng mới</h5>
+              </div>
+            </a>
+            <div id="bai9" class="collapse in" role="tabpanel">
+              <div class="card-body">
+                <div class="inputArray9">
+                  <div class="input">
+                    <label>Nhập mảng số mới: </label>
+                    <input type="number" />
+                    <button class="btn btn-dark ml-2" id="addNum9">
+                      Thêm số
+                    </button>
+                  </div>
+                  <div class="showArray">
+                    <span>Mảng số mới: </span>
+                    <span class="array"></span>
+                  </div>
+                </div>
+
+                <button class="btn btn-dark" id="run9">Đếm số nguyên</button>
+                <div class="output">
+                  <span>Số số nguyên trong mảng mới: </span>
+                  <span class="result"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <a data-toggle="collapse" data-parent="#accordian" href="#bai10">
+              <div class="card-header" role="tab" id="bai10Head">
+                <h5 class="mb-0">10/ So sánh số lượng số dương vs số lượng số âm trong mảng</h5>
+              </div>
+            </a>
+            <div id="bai10" class="collapse in" role="tabpanel">
+              <div class="card-body">
+                <button class="btn btn-dark" id="run10">
+                    So sánh
+                </button>
+                <div class="output">
+                  <span></span>
+                  <span class="result"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./main.js"></script>
+  </body>
+</html>

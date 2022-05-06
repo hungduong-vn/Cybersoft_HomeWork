@@ -1,0 +1,26 @@
+a, u {
+    text-decoration: none !important;
+}
+h5 {
+    color: black;
+}
+.container {
+    width: 70%;
+}
+#accordian {
+    width: 100%;
+}
+.input input {
+    width: 400px;
+    height: 38px;
+}
+.inputArray{
+    width: 100%;
+}
+.showArray,
+.output {
+    background-color: rgb(196, 196, 196);
+    border-radius: 10px;
+    padding: 20px 50px;
+    margin: 30px 0;
+}
