@@ -3,42 +3,17 @@ function getEle(selector) {
   return document.querySelector(selector);
 }
 
-function prefill() {
-  getEle("#tknv").value = "Hung2k";
-  getEle("#name").value = "Duong Ngoc Hung";
-  getEle("#email").value = "duongngochung13@gmail.com";
-  getEle("#password").value = "123456";
-  getEle("#datepicker").value = "03/12/2000";
-  getEle("#luongCB").value = "5000000";
-  getEle("#chucvu").value = "Sếp";
-  getEle("#gioLam").value = "120";
-}
-
-getEle("#btnThem").onclick = function () {
-  //   prefill();
-};
+// getEle("#btnThem").onclick = function () {
+//     prefill();
+// };
 
 getEle("#btnThemNV").onclick = function () {
-  var _taiKhoan = getEle("#tknv").value;
-  var _hoTen = getEle("#name").value;
-  var _email = getEle("#email").value;
-  var _matKhau = getEle("#password").value;
-  var _ngayLam = getEle("#datepicker").value;
-  var _luongCoBan = getEle("#luongCB").value;
-  var _chucVu = getEle("#chucvu").value;
-  var _gioLamThang = getEle("#gioLam").value;
-
-  var nhanVien = new NhanVien(
-    _taiKhoan,
-    _hoTen,
-    _email,
-    _matKhau,
-    _ngayLam,
-    _luongCoBan,
-    _chucVu,
-    _gioLamThang
-  );
-  validate(nhanVien);
+  var arrInput = [];  
+  arrInputId.forEach(function(ele, id){
+    arrInput.push(getEle(ele).value);
+  })
+  var nhanVien = new NhanVien(...arrInput);
+  validate(arrInput);
   dsnv.themNV(nhanVien);
   printDSNV(dsnv);
 };
@@ -72,39 +47,21 @@ function valEmpty(field, id) {
   return divTB;
 }
 
-function validate(nhanVien) {
-  var arrInputField = [
-    nhanVien.taiKhoan,
-    nhanVien.hoTen,
-    nhanVien.email,
-    nhanVien.matKhau,
-    nhanVien.ngayLam,
-    nhanVien.luongCoBan,
-    nhanVien.chucVu,
-    nhanVien.gioLamThang,
-  ];
-  //Validate Empty for each field
-  arrInputField.forEach(function (ele, id) {
+function validate(arrInput) {
+  //For each field
+  arrInput.forEach(function (ele, id) {
+    //Validate if empty
     var divTB = valEmpty(ele, id);
-    switch (id) {
-      case 0:
-        if (ele.length < 4 || ele.length > 6) {
-          divTB.innerHTML = alertVal[id];
-          divTB.style.display = "block";
-        }
-        break;
-
-      default:
-        break;
+    //If already empty => No need to check futher
+    if (divTB.style.display === "block"){
+      return;
+    }
+    //Validate if match the rules
+    if (eval(arrRuleVal[id])) {
+      divTB.style.display = 'none';
+    } else {
+      divTB.innerHTML = alertVal[id];
+      divTB.style.display = 'block';
     }
   });
-  //Validate TK
-  var divTB = getEle(arrAlertId[0]);
-  if (arrInputField[0].length < 4 || arrInputField[0].length > 6) {
-    divTB.innerHTML = alertVal[0];
-    divTB.style.display = "block";
-  } else {
-    divTB.style.display = "none";
-  }
-  //Validate Ho Ten
 }
