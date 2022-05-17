@@ -46,7 +46,7 @@ function Validation() {
   this.valRules = function (ele, id) {
     var isValid = true;
     var divTB = getEle(helper.arrAlertId[id]);
-    if (eval(this.arrRuleVal[i])) {
+    if (eval(this.arrRuleVal[id])) {
       divTB.style.display = "none";
     } else {
       divTB.innerHTML = this.alertVal[id];
@@ -55,27 +55,14 @@ function Validation() {
     }
     return isValid;
   };
-
   this.validate = function (arrInput) {
     var valid = true;
-    //For each field
     arrInput.forEach(function (ele, id) {
-      //Validate if empty
-      var divTB = this.valEmpty(ele, id);
-      //If already empty => No need to check futher
-      if (divTB.style.display === "block") {
-        valid = false;
+      valid = validation.valEmpty(ele, id);
+      if (!valid) {
         return;
       }
-      //Validate if match the rules
-      if (eval(this.arrRuleVal[id])) {
-        divTB.style.display = "none";
-      } else {
-        divTB.innerHTML = this.alertVal[id];
-        divTB.style.display = "block";
-        valid = false;
-      }
+      valid = validation.valRules(ele, id);
     });
-    return valid;
   };
 }
