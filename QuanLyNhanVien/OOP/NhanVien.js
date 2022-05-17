@@ -24,7 +24,7 @@ function NhanVien(
       this.tongLuong = this.luongCoBan * 3;
     } else if (this.chucVu === "Trưởng Phòng") {
       this.tongLuong = this.luongCoBan * 2;
-    } else if (this.chucVu === "Nhân Viên") {
+    } else if (this.chucVu === "Nhân viên") {
       this.tongLuong = this.luongCoBan * 1;
     }
   };
