@@ -22,7 +22,7 @@ function getLocalStorage(dsnv) {
 }
 
 getEle("#btnThem").onclick = function () {
-  // helper.prefill();
+  helper.prefill();
 };
 
 //1. In ra table danh sách nhân viên
@@ -38,6 +38,10 @@ function printDSNV(dsnv) {
         <td>${ele.chucVu}</td>
         <td>${ele.tongLuong}</td>
         <td>${ele.loaiNV}</td>
+        <td>
+          <button class="btn btn-danger" onclick="xoaNV('${ele.taiKhoan}')">✕</button>
+          <button class="btn btn-info" onclick="suaNV('${ele.taiKhoan}')">✎</button>
+        </td>
       </tr>
       `;
   });
@@ -60,4 +64,15 @@ getEle("#btnThemNV").onclick = function () {
   setLocalStorage(dsnv);
 };
 
+//7. Xoá Nhân Viên
+function xoaNV(taiKhoan){
+  dsnv.xoaNV(taiKhoan);
+  printDSNV(dsnv);
+  setLocalStorage(dsnv);
+}
+
+//8. Cập nhật Nhân Viên
+function suaNV(taiKhoan){
+  console.log(123);
+}
 getLocalStorage(dsnv);

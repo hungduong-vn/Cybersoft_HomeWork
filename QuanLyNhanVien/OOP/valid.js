@@ -58,11 +58,12 @@ function Validation() {
   this.validate = function (arrInput) {
     var valid = true;
     arrInput.forEach(function (ele, id) {
-      valid = validation.valEmpty(ele, id);
+      valid &&= validation.valEmpty(ele, id);
       if (!valid) {
         return;
       }
-      valid = validation.valRules(ele, id);
+      valid &&= validation.valRules(ele, id);
     });
+    return valid;
   };
 }
