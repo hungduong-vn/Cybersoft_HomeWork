@@ -19,4 +19,26 @@ function DSNV() {
       this.arr.splice(viTriNV, 1);
     }
   };
+  this.suaNV = function (_taiKhoan) {
+    var viTriNV = this.timViTriNV(_taiKhoan);
+    if (viTriNV !== -1) {
+      return this.arr[viTriNV];
+    }
+    return null;
+  };
+  this.updateNV = function (NVMoi) {
+    var viTriNV = this.timViTriNV(NVMoi.taiKhoan);
+    if (viTriNV !== -1) {
+      this.arr[viTriNV] = NVMoi;
+    }
+  };
+  this.timKiemNV = function (kw) {
+    var arrFound = [];
+    this.arr.forEach(function (ele, id) {
+      if (ele.loaiNV.toLowerCase().indexOf(kw.toLowerCase()) > -1) {
+        arrFound.push(ele);
+      }
+    });
+    return arrFound;
+  };
 }

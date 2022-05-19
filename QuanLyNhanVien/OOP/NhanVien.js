@@ -22,7 +22,7 @@ function NhanVien(
   this.tinhTongLuong = function () {
     if (this.chucVu === "Sếp") {
       this.tongLuong = this.luongCoBan * 3;
-    } else if (this.chucVu === "Trưởng Phòng") {
+    } else if (this.chucVu === "Trưởng phòng") {
       this.tongLuong = this.luongCoBan * 2;
     } else if (this.chucVu === "Nhân viên") {
       this.tongLuong = this.luongCoBan * 1;

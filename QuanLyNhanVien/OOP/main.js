@@ -17,18 +17,34 @@ function getLocalStorage(dsnv) {
     //Convert string => JSON
     var dataJson = JSON.parse(dataString);
     dsnv.arr = dataJson;
-    printDSNV(dsnv);
+    printDSNV(dsnv.arr);
   }
 }
+getLocalStorage(dsnv);
+
 
 getEle("#btnThem").onclick = function () {
-  helper.prefill();
+  getEle("#btnCapNhat").style.display = "none";
+  // arrFill = [
+  //   "0000001",
+  //   "Duong Ngoc Hung",
+  //   "duongngochung13@gmail.com",
+  //   "Hung@2k",
+  //   "12/03/2000",
+  //   "10000000",
+  //   "Sếp",
+  //   "200",
+  // ];
+  // helper.fill(...arrFill);
 };
 
 //1. In ra table danh sách nhân viên
-function printDSNV(dsnv) {
+function printDSNV(arrNV) {
   var content = "";
-  dsnv.arr.forEach(function (ele, id) {
+  if (arrNV.length === 0){
+    return;
+  }
+  arrNV.forEach(function (ele, id) {
     content += `
       <tr>
         <td>${ele.taiKhoan}</td>
@@ -40,7 +56,7 @@ function printDSNV(dsnv) {
         <td>${ele.loaiNV}</td>
         <td>
           <button class="btn btn-danger" onclick="xoaNV('${ele.taiKhoan}')">✕</button>
-          <button class="btn btn-info" onclick="suaNV('${ele.taiKhoan}')">✎</button>
+          <button class="btn btn-info" data-toggle="modal" data-target="#myModal" onclick="suaNV('${ele.taiKhoan}')">✎</button>
         </td>
       </tr>
       `;
@@ -60,19 +76,62 @@ getEle("#btnThemNV").onclick = function () {
     nhanVien.xepLoaiNV();
     dsnv.themNV(nhanVien);
   }
-  printDSNV(dsnv);
+  printDSNV(dsnv.arr);
   setLocalStorage(dsnv);
 };
 
 //7. Xoá Nhân Viên
-function xoaNV(taiKhoan){
+function xoaNV(taiKhoan) {
   dsnv.xoaNV(taiKhoan);
-  printDSNV(dsnv);
+  printDSNV(dsnv.arr);
   setLocalStorage(dsnv);
 }
 
 //8. Cập nhật Nhân Viên
-function suaNV(taiKhoan){
-  console.log(123);
+/*
+- Bấm nút "Sửa" => call hàm suaNV(_taiKhoan)
+- Hiện lên form nhập thông tin chỉnh sửa:
+  - Form điền sẵn các trường = info của nhanVien có taiKhoan === taiKhoan
+  - Trường "Tài Khoản" disabled = true.
+- User nhập xong, bấm nút "Cập nhật":
+  - Validate input mới này.
+  - If validate đạt => Thêm vô dsnv, lưu vô storage, in ra table
+ */
+function suaNV(taiKhoan) {
+  getEle("#btnCapNhat").style.display = "inline-block";
+  var nv = dsnv.suaNV(taiKhoan);
+  var arrInput = [
+    nv.taiKhoan,
+    nv.hoTen,
+    nv.email,
+    nv.matKhau,
+    nv.ngayLam,
+    nv.luongCoBan,
+    nv.chucVu,
+    nv.gioLamThang,
+  ];
+  helper.fill(...arrInput);
+  getEle("#tknv").disabled = true;
+  getEle("#btnCapNhat").onclick = function () {
+    if (validation.validate(arrInput)) {
+      var newInput = [];
+      helper.arrInputId.forEach(function (ele, id) {
+        newInput.push(getEle(ele).value);
+      });
+      var newNV = new NhanVien(...newInput);
+      dsnv.updateNV(newNV);
+      newNV.xepLoaiNV();
+      newNV.tinhTongLuong();
+      printDSNV(dsnv.arr);
+      setLocalStorage(dsnv);
+      helper.fill("", "", "", "", "", "", "", "");
+    }
+    getEle("#tknv").disabled = false;
+  };
 }
-getLocalStorage(dsnv);
+//9. Tìm nhân viên theo xepLoai => Hiển thị các kq tìm thấy
+getEle("#searchName").addEventListener("keyup", function () {
+  var kw = getEle("#searchName").value;
+  var nvFound = dsnv.timKiemNV(kw);
+  printDSNV(nvFound);
+});

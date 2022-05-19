@@ -19,17 +19,27 @@ function Helper() {
     "#tbChucVu",
     "#tbGiolam",
   ];
-  this.prefill = function () {
-    getEle("#tknv").value = "0000001";
-    getEle("#name").value = "Duong Ngoc Hung";
-    getEle("#email").value = "duongngochung13@gmail.com";
-    getEle("#password").value = "Hung@2k";
-    getEle("#datepicker").value = "12/03/2000";
-    getEle("#luongCB").value = "10000000";
-    getEle("#chucvu").value = "Sếp";
-    getEle("#gioLam").value = "200";
+  this.fill = function (
+    taiKhoan,
+    hoTen,
+    email,
+    matKhau,
+    ngayLam,
+    luongCoBan,
+    chucVu,
+    gioLamThang
+  ) {
+    getEle("#tknv").value = taiKhoan;
+    getEle("#name").value = hoTen;
+    getEle("#email").value = email;
+    getEle("#password").value = matKhau;
+    getEle("#datepicker").value = ngayLam;
+    getEle("#luongCB").value = luongCoBan;
+    getEle("#chucvu").value = chucVu;
+    getEle("#gioLam").value = gioLamThang;
   };
 }
 function getEle(selector) {
   return document.querySelector(selector);
 }
+
