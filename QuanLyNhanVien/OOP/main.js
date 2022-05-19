@@ -129,9 +129,4 @@ function suaNV(taiKhoan) {
     getEle("#tknv").disabled = false;
   };
 }
-//9. Tìm nhân viên theo xepLoai => Hiển thị các kq tìm thấy
-getEle("#searchName").addEventListener("keyup", function () {
-  var kw = getEle("#searchName").value;
-  var nvFound = dsnv.timKiemNV(kw);
-  printDSNV(nvFound);
-});
+
