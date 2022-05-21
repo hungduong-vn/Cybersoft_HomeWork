@@ -33,9 +33,13 @@ function Validation() {
   this.valEmpty = function (ele, id) {
     var isValid = true;
     var divTB = getEle(helper.arrAlertId[id]);
-    if (ele === "" || ele === "Chọn chức vụ") {
+    if (ele === "") {
       divTB.innerHTML =
         this.alertEmpty + getEle(helper.arrInputId[id]).placeholder;
+      divTB.style.display = "block";
+      isValid = false;
+    } else if (ele === "Chọn chức vụ") {
+      divTB.innerHTML = "(*) Vui lòng chọn Chức Vụ";
       divTB.style.display = "block";
       isValid = false;
     } else {
@@ -55,15 +59,42 @@ function Validation() {
     }
     return isValid;
   };
+  this.valExisted = function (arr, ele, id, message) {
+    var isValid = true;
+    var divTB = getEle(helper.arrAlertId[id]);
+    arr.forEach(function (item) {
+      if (item.taiKhoan.match(ele)) {
+        isValid = false;
+      }
+    });
+    if (!isValid) {
+      divTB.style.display = "block";
+      divTB.innerHTML = message;
+    } else {
+      divTB.style.display = "none";
+    }
+    return isValid;
+  };
   this.validate = function (arrInput) {
+    var valid = true;
     arrInput.forEach(function (ele, id) {
-      var valid = true;
-      valid &= validation.valEmpty(ele, id);
-      if (!valid) {
+      var subValid = true;
+      //Check if empty
+      subValid &= validation.valEmpty(ele, id);
+      //If already empty => No need to check rules
+      if (!subValid) {
+        valid &= subValid;
         return;
       }
-      valid &= validation.valRules(ele, id);
+      subValid &= validation.valRules(ele, id);
+      valid &= subValid;
     });
+    return valid;
+  };
+  this.validateAdd = function (arrNV, arrInput) {
+    var valid = true;
+    valid &= this.validate(arrInput);
+    valid &= this.valExisted(arrNV, arrInput[0], 0, "Tài khoản đã tồn tại");
     return valid;
   };
 }

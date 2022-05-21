@@ -22,9 +22,11 @@ function getLocalStorage(dsnv) {
 }
 getLocalStorage(dsnv);
 
-
 getEle("#btnThem").onclick = function () {
+  helper.clear();
+  getEle("#tknv").disabled = false;
   getEle("#btnCapNhat").style.display = "none";
+  getEle("#tbUpdate").style.display = "none";
   // arrFill = [
   //   "0000001",
   //   "Duong Ngoc Hung",
@@ -41,7 +43,7 @@ getEle("#btnThem").onclick = function () {
 //1. In ra table danh sách nhân viên
 function printDSNV(arrNV) {
   var content = "";
-  if (arrNV.length === 0){
+  if (arrNV.length === 0) {
     return;
   }
   arrNV.forEach(function (ele, id) {
@@ -70,7 +72,7 @@ getEle("#btnThemNV").onclick = function () {
     arrInput.push(getEle(ele).value);
   });
   var nhanVien = new NhanVien(...arrInput);
-  if (validation.validate(arrInput)) {
+  if (validation.validateAdd(dsnv.arr, arrInput)) {
     //If input has no error => add nhanVien into dsnv
     nhanVien.tinhTongLuong();
     nhanVien.xepLoaiNV();
@@ -98,7 +100,12 @@ function xoaNV(taiKhoan) {
   - If validate đạt => Thêm vô dsnv, lưu vô storage, in ra table
  */
 function suaNV(taiKhoan) {
+  //UI Preparation
+  getEle("#tknv").disabled = true;
   getEle("#btnCapNhat").style.display = "inline-block";
+  helper.clearMess();
+
+  //Fill form with current user's info
   var nv = dsnv.suaNV(taiKhoan);
   var arrInput = [
     nv.taiKhoan,
@@ -111,22 +118,31 @@ function suaNV(taiKhoan) {
     nv.gioLamThang,
   ];
   helper.fill(...arrInput);
-  getEle("#tknv").disabled = true;
+
+  //Clicking "Cập Nhật"
   getEle("#btnCapNhat").onclick = function () {
-    if (validation.validate(arrInput)) {
-      var newInput = [];
-      helper.arrInputId.forEach(function (ele, id) {
-        newInput.push(getEle(ele).value);
-      });
+    //Get new updating input
+    var newInput = [];
+    helper.arrInputId.forEach(function (ele, id) {
+      newInput.push(getEle(ele).value);
+    });
+    //Validate new input => True: update dsnv, printDSNV, save storage
+    if (validation.validate(newInput)) {
       var newNV = new NhanVien(...newInput);
       dsnv.updateNV(newNV);
       newNV.xepLoaiNV();
       newNV.tinhTongLuong();
       printDSNV(dsnv.arr);
       setLocalStorage(dsnv);
-      helper.fill("", "", "", "", "", "", "", "");
+      getEle("#tbUpdate").style.display = "block";
+      getEle("#tbUpdate2").style.display = "block";
+
+      // helper.clear();
+    } else {
+      getEle("#tbUpdate").style.display = "none";
+      getEle("#tbUpdate2").style.display = "none";
     }
-    getEle("#tknv").disabled = false;
+    
   };
 }
 //9. Tìm nhân viên theo xepLoai=> Hiển thị các kq tìm thấy

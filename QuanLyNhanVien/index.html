@@ -19,7 +19,10 @@
 
     <!-- Animate -->
     <!-- <link rel="stylesheet" href="css/animate.css"> -->
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <!-- My CSS -->
     <link rel="stylesheet" href="css/modal.css" />
 
@@ -163,7 +166,10 @@
                   </div>
                 </div>
               </div>
-              <table class="table table-bordered table-hover myTable" id="listNV">
+              <table
+                class="table table-bordered table-hover myTable"
+                id="listNV"
+              >
                 <thead class="text-primary">
                   <tr>
                     <th class="nowrap">
@@ -177,7 +183,7 @@
                     <th>Chức vụ</th>
                     <th>Tổng lương</th>
                     <th>Xếp loại</th>
-                    <th style="width:10%"><em class="fa fa-cog"></em></th>
+                    <th style="width: 10%"><em class="fa fa-cog"></em></th>
                   </tr>
                 </thead>
                 <tbody id="tableDanhSach"></tbody>
@@ -359,6 +365,9 @@
                 </div>
                 <span class="sp-thongbao" id="tbGiolam"></span>
               </div>
+              <span class="text-success animate__animated animate__pulse" id="tbUpdate" style="display: none"
+                >Cập nhật thành công</span
+              >
             </form>
           </div>
 
@@ -367,7 +376,7 @@
             <button id="btnThemNV" type="button" class="btn btn-success">
               Thêm người dùng
             </button>
-            <button id="btnCapNhat" type="button" data-dismiss="modal" class="btn btn-warning">
+            <button id="btnCapNhat" type="button" class="btn btn-warning">
               Cập nhật
             </button>
             <button
@@ -409,10 +418,10 @@
         });
       });
     </script>
-	<script src="./OOP/helper.js"></script>
-  <script src="./OOP/NhanVien.js"></script>
-	<script src="./OOP/DSNV.js"></script>
-	<script src="./OOP/valid.js"></script>
-	<script src="./OOP/main.js"></script>
+    <script src="./OOP/helper.js"></script>
+    <script src="./OOP/NhanVien.js"></script>
+    <script src="./OOP/DSNV.js"></script>
+    <script src="./OOP/valid.js"></script>
+    <script src="./OOP/main.js"></script>
   </body>
 </html>
