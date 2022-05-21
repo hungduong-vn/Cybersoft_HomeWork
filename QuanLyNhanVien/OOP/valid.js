@@ -5,7 +5,7 @@ function Validation() {
   this.alertVal = [
     "Tài Khoản là chuỗi số có độ dài từ 4 đến 6 ký số",
     "Tên Nhân Viên phải là chữ",
-    "Email phải đúng định dạng (VD: abc@xyz.com)",
+    "Email phải đúng định dạng (VD: abc@xyz.[domain])",
     "Mật khẩu từ 6-10 ký tự (chứa ít nhất 1 ký tự số, 1 ký tự in hoa, 1 ký tự đặc biệt)",
     "Ngày làm phải theo định dạng mm/dd/yyyy",
     "Lương cơ bản từ 1.000.000 -> 20.000.000",

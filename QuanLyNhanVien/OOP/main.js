@@ -128,19 +128,14 @@ function suaNV(taiKhoan) {
     });
     //Validate new input => True: update dsnv, printDSNV, save storage
     if (validation.validate(newInput)) {
+      helper.clearMess();
       var newNV = new NhanVien(...newInput);
       dsnv.updateNV(newNV);
       newNV.xepLoaiNV();
       newNV.tinhTongLuong();
       printDSNV(dsnv.arr);
       setLocalStorage(dsnv);
-      getEle("#tbUpdate").style.display = "block";
-      getEle("#tbUpdate2").style.display = "block";
-
-      // helper.clear();
-    } else {
-      getEle("#tbUpdate").style.display = "none";
-      getEle("#tbUpdate2").style.display = "none";
+      alert('Cập nhật thành công!');
     }
     
   };
