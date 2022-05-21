@@ -24,7 +24,7 @@ function Validation() {
   ];
   this.accountFormat = /[0-9]{4,6}/g;
   this.letters = /[A-Za-z]+/g;
-  this.emailFormat = /\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})/g;
+  this.emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   this.passwordFormat =
     /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,10}$/;
   this.dateFormat =
@@ -56,13 +56,13 @@ function Validation() {
     return isValid;
   };
   this.validate = function (arrInput) {
-    var valid = true;
     arrInput.forEach(function (ele, id) {
-      valid &&= validation.valEmpty(ele, id);
+      var valid = true;
+      valid &= validation.valEmpty(ele, id);
       if (!valid) {
         return;
       }
-      valid &&= validation.valRules(ele, id);
+      valid &= validation.valRules(ele, id);
     });
     return valid;
   };
