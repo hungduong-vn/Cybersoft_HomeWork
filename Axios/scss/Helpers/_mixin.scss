@@ -1,0 +1,16 @@
+@mixin styleText($fs, $color, $fw) {
+  font-size: $fs;
+  color: $color;
+  font-weight: $fw;
+}
+
+@mixin screenMax($max-screenWidth) {
+  @media screen and (max-width: $max-screenWidth) {
+    @content;
+  }
+}
+@mixin screenMin($min-screenWidth) {
+  @media screen and (min-width: $min-screenWidth) {
+    @content;
+  }
+}

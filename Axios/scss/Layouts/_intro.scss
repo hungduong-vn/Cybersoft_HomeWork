@@ -1,0 +1,49 @@
+#intro {
+  font-family: "Montserrat", Arial, sans-serif;
+  padding: $py-section;
+  position: relative;
+  .top__wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+  .intro__left {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    p {
+      @include styleText(16.5px, $color-sub, $fw-main);
+      margin-bottom: 8.25px;
+      @include screenMax(360px){
+        font-size: 14.25px;
+      }
+    }
+    h1 {
+      @include styleText(57px, $color-main, 700);
+      @include screenMax(360px){
+        font-size: 37.5px;
+      }
+    }
+  }
+  .intro__right{
+    img{
+      width: 100%;
+    }
+  }
+  .bottom__wave{
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    img{
+      width: 100%;
+    }
+  }
+}

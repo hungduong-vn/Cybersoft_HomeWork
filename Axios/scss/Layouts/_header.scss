@@ -1,0 +1,128 @@
+header {
+  font-family: $ff-main;
+  font-size: $fs-main;
+  font-weight: $fw-main;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  @include screenMax(1199px) {
+    background-color: white;
+  }
+  .navbar {
+    .logo__mobile {
+      @include screenMin(1199px) {
+        display: none;
+      }
+      margin-left: 20px;
+      margin-right: auto;
+      width: 48px;
+      img {
+        width: 100%;
+      }
+    }
+    .navbar-brand {
+      padding: 0;
+      img {
+        width: 80px;
+        display: none;
+        @include screenMin(1199px) {
+          display: block;
+        }
+      }
+    }
+    .navbar-collapse {
+      justify-content: flex-end;
+      .collapse__content {
+        display: flex;
+        justify-content: flex-end;
+        .navbar-nav .nav-item {
+          @include styleText($fs-main, $color-main, $fw-main);
+          margin: 0 50px 0 0;
+          padding: 0;
+          line-height: 80px;
+          position: relative;
+          transition: all 0.3s;
+          &.scrollNavItem {
+            line-height: 48px;
+          }
+          &:after {
+            content: " ";
+            position: absolute;
+            z-index: 5;
+            bottom: -4px;
+            margin-left: -4px;
+            left: 50%;
+            pointer-events: none;
+            height: 8px;
+            width: 8px;
+            border-radius: 50%;
+            background-color: $color-sub;
+            display: block;
+            visibility: hidden;
+            transform: scale(0);
+            transition: all 0.3s;
+          }
+          &.active:after {
+            visibility: visible;
+            transform: scale(1);
+          }
+          &:hover {
+            color: $color-sub;
+          }
+          &:hover:after {
+            visibility: visible;
+            transform: scale(1.5);
+          }
+        }
+      }
+      &.show {
+        .collapse__content {
+          z-index: 99;
+          overflow-y: auto;
+          width: 30%;
+          display: block;
+          .navbar-nav .nav-item {
+            line-height: 48px;
+            &.active:after {
+              display: none;
+            }
+            &:hover:after {
+            display: none;  
+            }
+          }
+          .nav__info {
+            display: inline-block;
+            .nav__phone{
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+    .nav__info {
+      display: flex;
+      align-items: center;
+      .nav__phone {
+        cursor: pointer;
+        line-height: 1;
+        @include styleText($fs-cta, white, $fw-cta);
+        padding: 14px 20.25px;
+        margin: 6px;
+      }
+      .nav__social {
+        font-size: 13.586px;
+        font-weight: 400;
+        .fab {
+          cursor: pointer;
+          margin-left: 10px;
+          transition: all 0.25s;
+          &:hover {
+            color: $color-sub;
+          }
+        }
+      }
+    }
+  }
+}

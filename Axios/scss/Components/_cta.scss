@@ -1,0 +1,12 @@
+.cta {
+  color: white;
+  box-shadow: 0 0 0 3em $color-sub inset;
+  border-radius: 50px;
+  transition: all 300ms ease;
+  &:hover {
+    box-shadow: 0 0 0 1px $color-sub inset;
+    i, span{
+        color: $color-sub;
+    }
+  }
+}

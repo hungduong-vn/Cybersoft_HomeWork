@@ -1,0 +1,59 @@
+#team {
+  background-color: $color-violet;
+  padding-top: 30px;
+  position: relative;
+  .team__wrapper {
+    z-index: 1;
+    .team__member {
+      font-family: "Montserrat", "Arial", sans-serif;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      transition: all 0.3s;
+      &:hover {
+        box-shadow: 0 30px 30px -10px rgba(0, 0, 0, 0.2);
+      }
+      .team__thumb {
+        overflow: hidden;
+        &:hover img {
+          transform: scale(1.05);
+        }
+        img {
+          transition: all 0.5s;
+          width: 100%;
+        }
+      }
+      .team__content {
+        margin: 20px 0;
+        padding: 0 30px;
+        text-align: center;
+        .team__heading {
+          @include styleText(11.25px, $color-sub, 600);
+          margin-bottom: 7.875px;
+        }
+        .team__title {
+          font-size: 23.25px;
+          font-weight: 700;
+        }
+        .team__desc {
+          padding: 15px 0;
+          font-family: "Roboto", "Arial", "Helvetica", sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .team__bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}
