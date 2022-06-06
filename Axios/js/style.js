@@ -1,12 +1,8 @@
-function getEleId(id) {
-  return document.getElementById(id);
-}
-function getEle(selector) {
-  return document.querySelector(selector);
-}
+let getEleId = (id) => document.getElementById(id);
+let getEle = (selector) => document.querySelector(selector);
 
 window.onscroll = function () {
-  console.log(scrollY);
+  // console.log(scrollY);
   if (window.scrollY > 250) {
     getEleId("logo").style.display = "none";
     // getEle(".logo__mobile img").style.display = "none";
@@ -25,7 +21,7 @@ window.onscroll = function () {
     });
     if (window.innerWidth > 1199) {
       getEle("header").style.backgroundColor = "transparent";
-      getEle("header").style.position = 'absolute';
+      getEle("header").style.position = "absolute";
     }
   }
 };
