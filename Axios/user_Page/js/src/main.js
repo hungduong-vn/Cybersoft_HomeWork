@@ -10,7 +10,8 @@ let getUsers = () => {
 let renderList = (data) => {
   let content = "";
   data.forEach((ele) => {
-    content += `
+    if (ele.loaiND === "GV") {
+      content += `
       <div class="team__wrapper col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4">
         <div class="team__member">
           <div class="team__thumb">
@@ -26,6 +27,7 @@ let renderList = (data) => {
         </div>
       </div>
     `;
+    }
   });
   getEleId("teamRow").innerHTML = content;
 };
