@@ -1,0 +1,107 @@
+footer {
+  background-image: url("./../../images/footer_background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  position: relative;
+  .container {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    color: white;
+    font-size: 13.5px;
+    font-family: "Robotto", sans-serif;
+    .footer__col {
+      @media screen and (min-width: 1199px){
+        padding: 0 40px;  
+      }
+      .footer__title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 23.25px;
+        font-weight: 700;
+        // color: white;
+        line-height: 27.9px;
+        margin-bottom: 30px;
+      }
+      .footer__contact__item {
+        align-items: center;
+        margin-bottom: 15px;
+        p {
+          margin-left: 10.8px;
+        }
+      }
+      .footer__social {
+        cursor: pointer;
+        i {
+          margin-right: 15px;
+          transition: all 0.3s;
+          &:hover {
+            color: black;
+          }
+        }
+      }
+      .footer__links {
+        margin-top: -10px;
+        .footer__link {
+          padding: 10px 0;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+      .footer__subscribe {
+        .footer__email {
+          padding-bottom: 7.5px;
+          input {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            outline: none;
+            width: 100%;
+            background: transparent;
+            line-height: 1;
+            display: block;
+            padding: 1em;
+            color: white;
+            text-align: center;
+            transition: all 0.3s;
+            &::placeholder {
+              color: white;
+            }
+            &:focus {
+              border: 1px solid rgba(255, 255, 255, 1);
+            }
+          }
+        }
+        .footer__btn {
+          input {
+            outline: none;
+            border: none;
+            box-shadow: 0 0 0 3em #fff inset;
+            color: #181818;
+            border-radius: 50px;
+            height: 48px;
+            width: 100% !important;
+            line-height: 37.2px;
+            font-family: "Montserrat", Arial, Helvetica, sans-serif;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            background-color: transparent;
+            transition: all 300ms ease;
+            &:hover {
+              box-shadow: 0 0 0 1px #fff inset;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}

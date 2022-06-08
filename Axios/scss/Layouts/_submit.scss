@@ -1,0 +1,115 @@
+#submit {
+  padding-top: 60px;
+  position: relative;
+  .container {
+    max-width: 1000px;
+    padding: 0;
+    .submit__left {
+      img {
+        display: block;
+        margin: 0;
+        line-height: 0;
+        max-width: 100%;
+        height: auto;
+        border-radius: 0;
+      }
+      @media screen and (max-width: 992px) {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+    }
+    .submit__right {
+      font-family: "Montserrat", sans-serif;
+      .submit__form {
+        max-width: 500px;
+        padding: 0 25px;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 30px 30px -10px rgba(0, 0, 0, 0.2);
+        .submit__title {
+          font-size: 37.5px;
+          line-height: 45px;
+          font-weight: 700;
+        }
+        .submit__input {
+          margin-top: 50px;
+          div {
+            position: relative;
+            i {
+              position: absolute;
+              top: 15px;
+              left: 28px;
+              line-height: 1;
+              color: $color-sub;
+            }
+            input,
+            select {
+              border-radius: 50px;
+              border: rgba(0, 0, 0, 0.1) solid 1px;
+              outline: none;
+              font-family: "Robotto", sans-serif;
+              width: 100%;
+              background: transparent;
+              line-height: 1;
+              display: block;
+              color: inherit;
+              padding: 12px 12px 12px 42px !important;
+              font-size: 12px !important;
+              height: 44.5px;
+              margin-bottom: 15px;
+            }
+            textarea {
+              font-family: "Robotto", sans-serif;
+              padding: 12px 12px 12px 42px !important;
+              height: 90px;
+              line-height: 1.5;
+              font-size: 12px !important;
+              border-radius: 20px;
+              border: 1px solid rgba(0, 0, 0, 0.1);
+              width: 100%;
+            }
+          }
+        }
+        .submit__btn {
+          padding-top: 45px;
+          margin-bottom: 64px;
+          input {
+            border: none;
+            background-color: transparent;
+          }
+          .cta {
+            height: 48px;
+            width: 150px;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 37.2px;
+          }
+        }
+        @media screen and (max-width: 992px) {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      @media screen and (max-width: 992px) {
+        margin-top: 50px;
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+    }
+  }
+  .submit__bottom.wave {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}

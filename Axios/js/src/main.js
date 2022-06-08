@@ -8,7 +8,7 @@ let getUsers = () => {
 };
 
 let renderList = (data) => {
-  content = "";
+  let content = "";
   data.forEach((ele) => {
     content += `
       <div class="team__wrapper col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4">
