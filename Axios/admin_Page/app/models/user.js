@@ -1,26 +1,21 @@
 export class User {
-  constructor(
-    id,
-    taiKhoan,
-    hoTen,
-    matKhau,
-    email,
-    loaiND,
-    ngonNgu,
-    moTa,
-    hinhAnh
-  ) {
-    this.id = id;
+  constructor(taiKhoan, hoTen, matKhau, email, hinhAnh, loaiND, ngonNgu, moTa) {
+    // this.id = id;
     this.taiKhoan = taiKhoan;
     this.hoTen = hoTen;
     this.matKhau = matKhau;
     this.email = email;
-    this.loaiND = loaiND;
-    this.ngonNgu = ngonNgu;
+    this.loaiND = this.convertUserType(loaiND);
+    this.ngonNgu = this.getOption(ngonNgu);
     this.moTa = moTa;
     this.hinhAnh = hinhAnh;
   }
-  selectIdToValue(select,id){
-    return select.options[id].text;
+  getOption(property) {
+    let id = property.selectedIndex;
+    return property.options[id].text;
+  }
+  convertUserType(loaiND) {
+    let type = this.getOption(loaiND);
+    return (type === "Giáo viên") ? "GV" : "HV";
   }
 }

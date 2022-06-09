@@ -1,5 +1,6 @@
 let getEle = (id) => document.getElementById(id);
 
+import { User } from "../models/user.js";
 // import { User } from "./../models/user.js";
 import { ListUsers } from "./../models/listUsers.js";
 
@@ -45,8 +46,8 @@ let getInput = () => [
   getEle("MatKhau").value,
   getEle("Email").value,
   getEle("HinhAnh").value,
-  getEle("loaiNguoiDung").selectedIndex,
-  getEle("loaiNgonNgu").selectedIndex,
+  getEle("loaiNguoiDung"),
+  getEle("loaiNgonNgu"),
   getEle("MoTa").value,
 ];
 let getField = () => [
@@ -71,5 +72,21 @@ let prefill = () => {
   input[6].selectedIndex = "3";
   input[7].value = "Bring to the table win-win survival strategies to ensure.";
 };
-getEle("btnThemNguoiDung").onclick = () => prefill();
-let addUser = () => {};
+getEle("btnThemNguoiDung").onclick = () => {
+  prefill();
+  getEle("btnAddUser").style.display = "inline-block";
+};
+getEle("btnAddUser").onclick = () => {
+  addUser();
+};
+let addUser = () => {
+  let input = getInput();
+  let user = new User(...input);
+  listUsers
+    .addUser(user)
+    .then(() => {
+      getUsers();
+    })
+    .catch((error) => console.log(error));
+};
+
