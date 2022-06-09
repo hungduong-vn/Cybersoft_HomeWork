@@ -6,4 +6,11 @@ export class ListUsers {
       method: "GET",
     });
   }
+  addUser(user) {
+    return axios({
+      url: "https://628b995c667aea3a3e32d139.mockapi.io/api/users",
+      method: "POST",
+      data: user,
+    });
+  }
 }

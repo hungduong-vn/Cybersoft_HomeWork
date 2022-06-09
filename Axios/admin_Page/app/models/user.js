@@ -20,4 +20,7 @@ export class User {
     this.moTa = moTa;
     this.hinhAnh = hinhAnh;
   }
+  selectIdToValue(select,id){
+    return select.options[id].text;
+  }
 }
