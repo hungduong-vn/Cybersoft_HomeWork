@@ -1,10 +1,21 @@
 let getEle = (id) => document.getElementById(id);
 
 import { User } from "../models/user.js";
-// import { User } from "./../models/user.js";
 import { ListUsers } from "./../models/listUsers.js";
+import { Validation } from "./../models/validation.js";
 
 let listUsers = new ListUsers();
+
+let turnOffErrorMessage = () => {
+  getEle('tkError').style.display = 'none';
+  getEle('tenError').style.display = 'none';
+  getEle('mkError').style.display = 'none';
+  getEle('emailError').style.display = 'none';
+  getEle('anhError').style.display = 'none';
+  getEle('loaiError').style.display = 'none';
+  getEle('nnError').style.display = 'none';
+  getEle('moTaError').style.display = 'none';
+};
 
 //Hiện danh sách
 let renderTable = (data) => {
@@ -43,7 +54,6 @@ let getUsers = () => {
 };
 getUsers();
 
-//Thêm user
 let getInput = () => [
   getEle("TaiKhoan").value,
   getEle("HoTen").value,
@@ -77,23 +87,30 @@ let prefill = () => {
   input[7].value = "Bring to the table win-win survival strategies to ensure.";
 };
 getEle("btnThemNguoiDung").onclick = () => {
+  turnOffErrorMessage();
+  getEle("TaiKhoan").disabled = false;
   prefill();
   getEle("btnUpdateUser").style.display = "none";
   getEle("btnAddUser").style.display = "inline-block";
 };
+//ADD
 getEle("btnAddUser").onclick = () => {
   addUser();
 };
 let addUser = () => {
   let input = getInput();
-  input = [...input, id];
+  input = [...input, ""];
   let user = new User(...input);
-  listUsers
-    .addUser(user)
-    .then(() => {
-      getUsers();
-    })
-    .catch((error) => console.log(error));
+  //Validate
+  let validate = new Validation();
+  if (validate.isValid(user, listUsers)) {
+    listUsers
+      .addUser(user)
+      .then(() => {
+        getUsers();
+      })
+      .catch((error) => console.log(error));
+  }
 };
 
 //REMOVE
@@ -108,6 +125,7 @@ window.remove = (id) => {
 
 //EDIT
 window.edit = (id) => {
+  turnOffErrorMessage();
   getEle("btnUpdateUser").style.display = "inline-block";
   getEle("btnAddUser").style.display = "none";
 
@@ -124,13 +142,19 @@ window.edit = (id) => {
       input[5].value = currentUser.loaiND;
       input[6].value = currentUser.ngonNgu;
       input[7].value = currentUser.moTa;
+
+      input[0].disabled = true;
     })
     .catch((error) => console.log(error));
   getEle("btnUpdateUser").onclick = () => {
     let input = getInput();
     input = [...input, id];
     let newUser = new User(...input);
-    updateUser(newUser);
+    let validate = new Validation();
+    //Validate
+    if (validate.isValid(newUser, listUsers)) {
+      updateUser(newUser);
+    }
   };
 };
 
