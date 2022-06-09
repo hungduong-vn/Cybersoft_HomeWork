@@ -7,14 +7,14 @@ import { Validation } from "./../models/validation.js";
 let listUsers = new ListUsers();
 
 let turnOffErrorMessage = () => {
-  getEle('tkError').style.display = 'none';
-  getEle('tenError').style.display = 'none';
-  getEle('mkError').style.display = 'none';
-  getEle('emailError').style.display = 'none';
-  getEle('anhError').style.display = 'none';
-  getEle('loaiError').style.display = 'none';
-  getEle('nnError').style.display = 'none';
-  getEle('moTaError').style.display = 'none';
+  getEle("tkError").style.display = "none";
+  getEle("tenError").style.display = "none";
+  getEle("mkError").style.display = "none";
+  getEle("emailError").style.display = "none";
+  getEle("anhError").style.display = "none";
+  getEle("loaiError").style.display = "none";
+  getEle("nnError").style.display = "none";
+  getEle("moTaError").style.display = "none";
 };
 
 //Hiện danh sách
@@ -89,7 +89,7 @@ let prefill = () => {
 getEle("btnThemNguoiDung").onclick = () => {
   turnOffErrorMessage();
   getEle("TaiKhoan").disabled = false;
-  prefill();
+  // prefill();
   getEle("btnUpdateUser").style.display = "none";
   getEle("btnAddUser").style.display = "inline-block";
 };
@@ -103,14 +103,19 @@ let addUser = () => {
   let user = new User(...input);
   //Validate
   let validate = new Validation();
-  if (validate.isValid(user, listUsers)) {
-    listUsers
-      .addUser(user)
-      .then(() => {
-        getUsers();
-      })
-      .catch((error) => console.log(error));
-  }
+  listUsers
+    .getUsers()
+    .then((result) => {
+      if (validate.isValid(user, result.data)) {
+        listUsers
+          .addUser(user)
+          .then(() => {
+            getUsers();
+          })
+          .catch((error) => console.log(error));
+      }
+    })
+    .catch((error) => console.log(error));
 };
 
 //REMOVE

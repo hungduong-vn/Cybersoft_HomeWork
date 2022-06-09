@@ -1,5 +1,15 @@
 export class User {
-  constructor(taiKhoan, hoTen, matKhau, email, hinhAnh, loaiND, ngonNgu, moTa,id) {
+  constructor(
+    taiKhoan,
+    hoTen,
+    matKhau,
+    email,
+    hinhAnh,
+    loaiND,
+    ngonNgu,
+    moTa,
+    id
+  ) {
     this.id = id;
     this.taiKhoan = taiKhoan;
     this.hoTen = hoTen;
@@ -21,7 +31,13 @@ export class User {
   convertUserType(loaiND) {
     let type = this.getOption(loaiND);
     if (type !== loaiND) {
-      return type === "Giáo viên" ? "GV" : "HV";
+      if (type === "Giáo viên") {
+        return "GV";
+      } else if (type === "Học viên") {
+        return "HV";
+      } else {
+        return 'Chọn loại người dùng';
+      }
     } else {
       return loaiND;
     }
