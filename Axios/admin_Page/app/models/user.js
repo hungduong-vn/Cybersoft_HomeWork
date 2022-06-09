@@ -1,6 +1,6 @@
 export class User {
-  constructor(taiKhoan, hoTen, matKhau, email, hinhAnh, loaiND, ngonNgu, moTa) {
-    // this.id = id;
+  constructor(taiKhoan, hoTen, matKhau, email, hinhAnh, loaiND, ngonNgu, moTa,id) {
+    this.id = id;
     this.taiKhoan = taiKhoan;
     this.hoTen = hoTen;
     this.matKhau = matKhau;
@@ -11,11 +11,19 @@ export class User {
     this.hinhAnh = hinhAnh;
   }
   getOption(property) {
-    let id = property.selectedIndex;
-    return property.options[id].text;
+    if (typeof property === "object") {
+      let id = property.selectedIndex;
+      return property.options[id].text;
+    } else {
+      return property;
+    }
   }
   convertUserType(loaiND) {
     let type = this.getOption(loaiND);
-    return (type === "Giáo viên") ? "GV" : "HV";
+    if (type !== loaiND) {
+      return type === "Giáo viên" ? "GV" : "HV";
+    } else {
+      return loaiND;
+    }
   }
 }

@@ -20,8 +20,12 @@ let renderTable = (data) => {
         <td>${ele.ngonNgu}</td>
         <td>${ele.loaiND}</td>
         <td>
-          <button class="btn btn-info">Sửa</button>
-          <button class="btn btn-danger">Xoá</button>
+          <button class="btn btn-info" data-toggle="modal" data-target="#myModal" onclick="edit('${
+            ele.id
+          }')">Sửa</button>
+          <button class="btn btn-danger" onclick="remove('${
+            ele.id
+          }')">Xoá</button>
         </td>
       </tr>
     `;
@@ -74,6 +78,7 @@ let prefill = () => {
 };
 getEle("btnThemNguoiDung").onclick = () => {
   prefill();
+  getEle("btnUpdateUser").style.display = "none";
   getEle("btnAddUser").style.display = "inline-block";
 };
 getEle("btnAddUser").onclick = () => {
@@ -81,6 +86,7 @@ getEle("btnAddUser").onclick = () => {
 };
 let addUser = () => {
   let input = getInput();
+  input = [...input, id];
   let user = new User(...input);
   listUsers
     .addUser(user)
@@ -90,3 +96,49 @@ let addUser = () => {
     .catch((error) => console.log(error));
 };
 
+//REMOVE
+window.remove = (id) => {
+  listUsers
+    .removeUser(id)
+    .then(() => {
+      getUsers();
+    })
+    .catch((error) => console.log(error));
+};
+
+//EDIT
+window.edit = (id) => {
+  getEle("btnUpdateUser").style.display = "inline-block";
+  getEle("btnAddUser").style.display = "none";
+
+  listUsers
+    .getUser(id)
+    .then((result) => {
+      let currentUser = result.data;
+      let input = getField();
+      input[0].value = currentUser.taiKhoan;
+      input[1].value = currentUser.hoTen;
+      input[2].value = currentUser.matKhau;
+      input[3].value = currentUser.email;
+      input[4].value = currentUser.hinhAnh;
+      input[5].value = currentUser.loaiND;
+      input[6].value = currentUser.ngonNgu;
+      input[7].value = currentUser.moTa;
+    })
+    .catch((error) => console.log(error));
+  getEle("btnUpdateUser").onclick = () => {
+    let input = getInput();
+    input = [...input, id];
+    let newUser = new User(...input);
+    updateUser(newUser);
+  };
+};
+
+let updateUser = (user) => {
+  listUsers
+    .updateUser(user)
+    .then(() => {
+      getUsers();
+    })
+    .catch((error) => console.log(error));
+};
