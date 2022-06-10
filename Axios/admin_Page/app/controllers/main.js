@@ -86,10 +86,21 @@ let prefill = () => {
   input[6].selectedIndex = "3";
   input[7].value = "Bring to the table win-win survival strategies to ensure.";
 };
+let clearForm = () => {
+  let input = getField();
+  input[0].value = "";
+  input[1].value = "";
+  input[2].value = "";
+  input[3].value = "";
+  input[4].value = "";
+  input[5].selectedIndex = "0";
+  input[6].selectedIndex = "0";
+  input[7].value = "";
+}
 getEle("btnThemNguoiDung").onclick = () => {
   turnOffErrorMessage();
   getEle("TaiKhoan").disabled = false;
-  // prefill();
+  clearForm();
   getEle("btnUpdateUser").style.display = "none";
   getEle("btnAddUser").style.display = "inline-block";
 };
