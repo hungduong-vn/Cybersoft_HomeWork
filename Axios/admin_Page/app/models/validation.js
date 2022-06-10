@@ -46,7 +46,7 @@ export class Validation {
   isValid(user, allUsers = null) {
     let valid = true;
     //taiKhoan
-    if (!allUsers) {
+    if (allUsers !== null) {
       valid &=
         !this.isEmpty(
           user.taiKhoan,
