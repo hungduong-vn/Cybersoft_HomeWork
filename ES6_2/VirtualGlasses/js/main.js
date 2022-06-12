@@ -110,9 +110,24 @@ getEle("vglassesList").innerHTML = dataGlasses.reduce(
 
 window.addGlasses = (id) => {
   let glasses = dataGlasses.find((ele) => ele.id === id);
-  getEle('avatar').innerHTML = `
+  getEle("avatar").innerHTML = `
   <img src="${glasses.virtualImg}">
-  `
+  `;
+  getEle("glassesInfo").style.display = "block";
+  getEle("glassesInfo").innerHTML = `
+  <h6>${glasses.name} - ${glasses.brand} (${glasses.color})</h6>
+  <button class="btn btn-danger">${glasses.price}</button>
+  <span style="color:green">Stocking</span>
+  <p class="mt-3">${glasses.description}</p>
+  `;
 };
 
-window.removeGlasses()
+window.removeGlasses = (isOff) => {
+  if (isOff) {
+    // getEle("glassesInfo").style.display = "block";
+    document.querySelector("#avatar img").style.display = "block";
+  } else {
+    // getEle("glassesInfo").style.display = "none";
+    document.querySelector("#avatar img").style.display = "none";
+  }
+};
