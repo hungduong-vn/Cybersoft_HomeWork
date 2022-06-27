@@ -1,0 +1,30 @@
+.glassesOn,
+.glassesOff {
+  width: 300px;
+  position: relative;
+}
+.col-6 {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 30px;
+}
+.glasses {
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.glasses .imgContainer {
+  background-color: transparent;
+  border: none;
+  opacity: 0.8;
+}
+.glassesInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  padding: 5px;
+  background-color: rgba(255, 166, 0, 0.3);
+}
