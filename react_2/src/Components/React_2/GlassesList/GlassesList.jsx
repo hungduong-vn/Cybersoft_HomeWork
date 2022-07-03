@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Glasses from "../Glasses/Glasses";
-import glassesList from "./../../Data/dataGlasses.json";
+import glassesList from "./../Data/dataGlasses.json";
 
 export default class GlassesList extends Component {
   selectGlasses = (glasses) => {

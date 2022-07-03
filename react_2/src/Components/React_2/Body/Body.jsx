@@ -12,8 +12,8 @@ export default class Body extends Component {
   render() {
     return (
       <div>
-        <Tryon item={this.state.selectedItem}/>
-        <GlassesList  selectGlasses={this.selectGlasses}/>
+        <Tryon item={this.state.selectedItem} />
+        <GlassesList selectGlasses={this.selectGlasses} />
       </div>
     );
   }

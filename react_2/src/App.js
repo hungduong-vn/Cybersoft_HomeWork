@@ -1,12 +1,12 @@
 import "./App.css";
-import Header from "./Components/Header/Header";
-import Body from "./Components/Body/Body";
+import React2 from "./Components/React_2/React2";
+import React3 from "./Components/React_3/React3";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Body/>
+      <React2 />
+      <React3/>
     </div>
   );
 }
