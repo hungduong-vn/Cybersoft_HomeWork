@@ -5,7 +5,7 @@ import SeatsArea from "../SeatsArea/SeatsArea";
 
 export default class LeftPane extends Component {
   render() {
-    return <div className="pl-2">
+    return <div>
       <LeftTitle/>
       <Screen />
       <SeatsArea/>

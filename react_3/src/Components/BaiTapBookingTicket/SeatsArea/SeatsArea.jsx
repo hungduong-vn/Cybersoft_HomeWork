@@ -1,18 +1,16 @@
 import React, { Component } from "react";
 // import Seat from '../Seat/Seat'
-// import SeatCol from '../SeatCol/SeatCol'
-// import SeatRow from '../SeatRow/SeatRow'
 
 import DSGhe from "./../../../Data/DSGhe.json";
 
 export default class SeatsArea extends Component {
   renderFirstRow = (firstRow) => {
     return (
-      <div className="row rowGhe" key="-1">
-        <div className="firstChar col-1" style={{ opacity: "0" }}>
+      <div className="row rowGhe mt-3 mb-0 " key="-1">
+        <div className="firstChar px-2" style={{ opacity: "0" }}>
           Hi
         </div>
-        <div className="col-11 row">
+        <div className="col-11 row pl-0">
           {firstRow.map((ele, id) => {
             return (
               <div key={id} className="col-1">
@@ -27,15 +25,6 @@ export default class SeatsArea extends Component {
   render() {
     return (
       <div className="row">
-        {/* <div className="col-1">
-          <SeatCol/>
-        </div>
-        <div className="col-11">
-          <div className="col-12">
-            <SeatRow/>
-            <Seat/>
-          </div>
-        </div> */}
         {DSGhe.map((row, rowId) => {
           if (rowId === 0) {
             console.log("FIrst Row");
@@ -43,8 +32,8 @@ export default class SeatsArea extends Component {
           } else {
             return (
               <div className="row rowGhe" key={rowId}>
-                <div className="firstChar col-1">{row.hang}</div>
-                <div className="col-11 row">
+                <div className="firstChar px-3">{row.hang}</div>
+                <div className="col-11 row pl-0">
                   {row.danhSachGhe.map((ele, id) => {
                     return (
                       <div key={id} className="col-1">
