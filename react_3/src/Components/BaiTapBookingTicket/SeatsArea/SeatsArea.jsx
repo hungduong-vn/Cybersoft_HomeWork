@@ -7,20 +7,20 @@ import DSGhe from "./../../../Data/DSGhe.json";
 
 export default class SeatsArea extends Component {
   renderFirstRow = (firstRow) => {
-    console.log("Entering firstRow");
     return (
       <div className="row rowGhe" key="-1">
         <div className="firstChar col-1" style={{ opacity: "0" }}>
           Hi
         </div>
-        {firstRow.map((ele, id) => {
-          console.log(ele.soGhe);
-          return (
-            <div key={id} className="rowNumber">
-              {ele.soGhe}
-            </div>
-          );
-        })}
+        <div className="col-11 row">
+          {firstRow.map((ele, id) => {
+            return (
+              <div key={id} className="col-1">
+                <div className="rowNumber">{ele.soGhe}</div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   };
@@ -44,13 +44,15 @@ export default class SeatsArea extends Component {
             return (
               <div className="row rowGhe" key={rowId}>
                 <div className="firstChar col-1">{row.hang}</div>
-                {row.danhSachGhe.map((ele, id) => {
-                  return (
-                    <div key={id} className="ghe">
-                      {ele.soGhe}
-                    </div>
-                  );
-                })}
+                <div className="col-11 row">
+                  {row.danhSachGhe.map((ele, id) => {
+                    return (
+                      <div key={id} className="col-1">
+                        <div className="ghe">{id + 1}</div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             );
           }
