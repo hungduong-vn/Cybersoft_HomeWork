@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  background-image: url('../public/images/bgmovie.jpg');
+  background-repeat: none;
+  background-size: cover;
+  background-attachment: fixed;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .App-logo {
