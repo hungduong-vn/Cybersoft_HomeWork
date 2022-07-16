@@ -1,6 +1,18 @@
 import React, { Component } from "react";
-
-export default class Table extends Component {
+import { connect } from "react-redux";
+class Table extends Component {
+  renderList = () => {
+    return this.props.listSV.map((ele) => {
+      return (
+        <tr key={ele.maSV}>
+          <td>{ele.maSV}</td>
+          <td>{ele.hoTen}</td>
+          <td>{ele.soDienThoai}</td>
+          <td>{ele.email}</td>
+        </tr>
+      );
+    });
+  };
   render() {
     return (
       <table className="table container text-left">
@@ -12,15 +24,9 @@ export default class Table extends Component {
             <th>Email</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Dương Ngọc Hùng</td>
-            <td>0123456789</td>
-            <td>hungduong@gmail.com</td>
-          </tr>
-        </tbody>
+        <tbody>{this.renderList()}</tbody>
       </table>
     );
   }
 }
+export default connect((state) => ({ ...state.sinhVienReducer }))(Table);
