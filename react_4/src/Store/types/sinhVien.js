@@ -1,0 +1,5 @@
+const ADD_SV = "ADD_SV";
+const UPDATE_SV = "UPDATE_SV";
+const DELETE_SV = "DELETE_SV";
+const SELECT_SV = "SELECT_SV";
+export { ADD_SV, UPDATE_SV, DELETE_SV, SELECT_SV };

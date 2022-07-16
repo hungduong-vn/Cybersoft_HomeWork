@@ -9,6 +9,10 @@ class Table extends Component {
           <td>{ele.hoTen}</td>
           <td>{ele.soDienThoai}</td>
           <td>{ele.email}</td>
+          <td>
+            <button className="btn btn-outline-dark mr-2">Sửa</button>
+            <button className="btn btn-outline-danger">Xoá</button>
+          </td>
         </tr>
       );
     });
@@ -22,6 +26,7 @@ class Table extends Component {
             <th>Họ Tên</th>
             <th>Số Điện Thoại</th>
             <th>Email</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>{this.renderList()}</tbody>
