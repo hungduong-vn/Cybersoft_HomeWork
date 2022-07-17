@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { deleteSVAction, selectSVAction } from "../../Store/actions/sinhVien";
 class Table extends Component {
   renderList = () => {
     return this.props.listSV.map((ele) => {
@@ -10,8 +11,15 @@ class Table extends Component {
           <td>{ele.soDienThoai}</td>
           <td>{ele.email}</td>
           <td>
-            <button className="btn btn-outline-dark mr-2">Sửa</button>
-            <button className="btn btn-outline-danger">Xoá</button>
+            <button
+              className="btn btn-outline-dark mr-2"
+              onClick={() => this.props.dispatch(selectSVAction(ele))}
+            >
+              Sửa
+            </button>
+            <button className="btn btn-outline-danger"
+              onClick={() => this.props.dispatch(deleteSVAction(ele.maSV))}
+            >Xoá</button>
           </td>
         </tr>
       );
