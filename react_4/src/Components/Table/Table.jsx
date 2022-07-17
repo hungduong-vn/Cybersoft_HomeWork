@@ -2,8 +2,19 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { deleteSVAction, selectSVAction } from "../../Store/actions/sinhVien";
 class Table extends Component {
+  state = { keyword: "" };
   renderList = () => {
-    return this.props.listSV.map((ele) => {
+    const data = this.props.listSV.filter((ele) => {
+      return (
+        ele.hoTen
+        .toLowerCase()
+        .trim()
+        .indexOf(
+          this.state.keyword.toLowerCase().trim()
+        ) !== -1
+      );
+    });
+    return data.map((ele) => {
       return (
         <tr key={ele.maSV}>
           <td>{ele.maSV}</td>
@@ -17,9 +28,12 @@ class Table extends Component {
             >
               Sửa
             </button>
-            <button className="btn btn-outline-danger"
+            <button
+              className="btn btn-outline-danger"
               onClick={() => this.props.dispatch(deleteSVAction(ele.maSV))}
-            >Xoá</button>
+            >
+              Xoá
+            </button>
           </td>
         </tr>
       );
@@ -34,7 +48,16 @@ class Table extends Component {
             <th>Họ Tên</th>
             <th>Số Điện Thoại</th>
             <th>Email</th>
-            <th></th>
+            <th>
+              <input
+                className="form-control mr-sm-2"
+                type="search"
+                placeholder="Tìm SV theo Tên"
+                onChange={(event) =>
+                  this.setState({ keyword: event.target.value })
+                }
+              />
+            </th>
           </tr>
         </thead>
         <tbody>{this.renderList()}</tbody>
