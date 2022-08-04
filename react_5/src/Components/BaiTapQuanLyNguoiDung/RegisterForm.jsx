@@ -17,10 +17,9 @@ export default function RegisterForm() {
   const formRef = useRef(null);
   const [user, setUser] = useState(DEFAULT_STATE);
   const [isReset, setIsReset] = useState(false);
-  //AFTER SUCCESSFULLY SUBMIT -> RESET FORM
+  //AFTER SUCCESSFULLY SUBMIT/UPDATE -> RESET FORM
   useEffect(() => {
-    console.log("Reset after submit");
-    // setUser(DEFAULT_STATE);
+    console.log("Reset");
     console.log(formRef.current.checkValidity());
     setIsReset(false);
   }, [isReset]);
@@ -68,7 +67,6 @@ export default function RegisterForm() {
       dispatch(addUserAction(user.value));
       setIsReset(true);
     }
-    // document.getElementById("reset").click();
     setUser(DEFAULT_STATE);
   };
 
