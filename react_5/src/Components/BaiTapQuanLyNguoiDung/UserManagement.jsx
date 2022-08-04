@@ -44,7 +44,7 @@ export default function UserManagement(props) {
             {users.userList.map((ele, id) => {
               return (
                 <tr key={ele.id} className={id % 2 ? "bg-light" : ""}>
-                  <td>{ele.id}</td>
+                  <td>{id+1}</td>
                   <td>{ele.username}</td>
                   <td>{ele.fullName}</td>
                   <td>{ele.email}</td>

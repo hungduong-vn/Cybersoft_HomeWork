@@ -34,6 +34,8 @@ export const userReducer = (state = DEFAULT_STATE, { type, payload }) => {
     case SELECT_USER:
       return { ...state };
     case ADD_USER:
+      payload.id = Date.now();
+      state.userList.push(payload);
       return { ...state };
     case DELETE_USER:
       return { ...state };

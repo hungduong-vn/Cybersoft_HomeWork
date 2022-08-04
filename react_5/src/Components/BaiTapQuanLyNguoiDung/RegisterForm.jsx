@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { addUserAction } from "../../Store/actions/user";
 const DEFAULT_USER = {
   id: "",
@@ -10,10 +10,20 @@ const DEFAULT_USER = {
   phoneNumber: "",
   type: "Client",
 };
+const DEFAULT_STATE = { value: DEFAULT_USER, errors: {} };
 export default function RegisterForm() {
   const dispatch = useDispatch();
+  const props = useSelector((state) => state.userReducer);
   const formRef = useRef(null);
-  const [user, setUser] = useState({ value: DEFAULT_USER, errors: {} });
+  const [user, setUser] = useState(DEFAULT_STATE);
+  const [isReset, setIsReset] = useState(false);
+  //AFTER SUCCESSFULLY SUBMIT -> RESET FORM
+  useEffect(() => {
+    console.log("Reset after submit");
+    // setUser(DEFAULT_STATE);
+    console.log(formRef.current.checkValidity());
+    setIsReset(false);
+  }, [isReset]);
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUser({ ...user, value: { ...user.value, [name]: value } });
@@ -38,20 +48,30 @@ export default function RegisterForm() {
       message = `(*) ${title} is required`;
     }
     setUser({ ...user, errors: { ...user.errors, [name]: message } });
-    console.log(event.target.validity);
+    // console.log(event.target.validity);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Submiting");
-    for (let i = 0; i < 10; i++) {
-      if (i === 5) {
+    for (let i in user.errors) {
+      if (user.errors[i]) {
         return;
       }
-      console.log(i);
     }
-    console.log("Out of loop!");
-    // dispatch(addUserAction());
+    if (!event.target.checkValidity()) {
+      return;
+    }
+    if (props.selectedUser) {
+      //EDIT & UPDATE
+    } else {
+      //ADD
+      dispatch(addUserAction(user.value));
+      setIsReset(true);
+    }
+    // document.getElementById("reset").click();
+    setUser(DEFAULT_STATE);
   };
+
   return (
     <div className="card p-0">
       <div className="card-header bg-warning text-white font-weight-bold">
@@ -64,6 +84,7 @@ export default function RegisterForm() {
               <div className="form-group">
                 <label>Username</label>
                 <input
+                  value={user.value.username}
                   required
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -81,6 +102,7 @@ export default function RegisterForm() {
               <div className="form-group">
                 <label>Full Name</label>
                 <input
+                  value={user.value.fullName}
                   required
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -98,6 +120,7 @@ export default function RegisterForm() {
               <div className="form-group">
                 <label>Password</label>
                 <input
+                  value={user.value.password}
                   required
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -115,6 +138,7 @@ export default function RegisterForm() {
               <div className="form-group">
                 <label>Phone Number</label>
                 <input
+                  value={user.value.phoneNumber}
                   required
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -135,6 +159,7 @@ export default function RegisterForm() {
               <div className="form-group">
                 <label>Email</label>
                 <input
+                  value={user.value.email}
                   required
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -163,10 +188,14 @@ export default function RegisterForm() {
               </div>
             </div>
           </div>
-          <button type="submit" className="btn btn-warning mr-2">
+          <button
+            disabled={!formRef.current?.checkValidity()}
+            type="submit"
+            className="btn btn-warning mr-2"
+          >
             SAVE
           </button>
-          <button type="reset" className="btn btn-outline-dark">
+          <button id="reset" type="reset" className="btn btn-outline-dark">
             RESET
           </button>
         </form>
