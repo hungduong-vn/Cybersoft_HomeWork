@@ -32,6 +32,7 @@ const DEFAULT_STATE = {
 export const userReducer = (state = DEFAULT_STATE, { type, payload }) => {
   switch (type) {
     case SELECT_USER:
+      state.selectedUser = payload;
       return { ...state };
     case ADD_USER:
       payload.id = Date.now();

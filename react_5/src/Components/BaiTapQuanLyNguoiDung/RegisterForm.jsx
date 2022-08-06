@@ -13,14 +13,18 @@ const DEFAULT_USER = {
 const DEFAULT_STATE = { value: DEFAULT_USER, errors: {} };
 export default function RegisterForm() {
   const dispatch = useDispatch();
-  const props = useSelector((state) => state.userReducer);
   const formRef = useRef(null);
+  const props = useSelector((state) => state.userReducer);
   const [user, setUser] = useState(DEFAULT_STATE);
+  if (props.selectedUser && user.value.id !== props.selectedUser.id) {
+    console.log(props.selectedUser);
+    setUser({ ...user, value: props.selectedUser });
+  }
   const [isReset, setIsReset] = useState(false);
   //AFTER SUCCESSFULLY SUBMIT/UPDATE -> RESET FORM
   useEffect(() => {
     console.log("Reset");
-    console.log(formRef.current.checkValidity());
+    // console.log(formRef.current.checkValidity());
     setIsReset(false);
   }, [isReset]);
   const handleChange = (event) => {

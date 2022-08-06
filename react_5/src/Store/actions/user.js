@@ -6,7 +6,7 @@ import {
 } from "./../types/user";
 
 const addUserAction = (user) => ({ type: ADD_USER, payload: user });
-const selectUserAction = (id) => ({ type: SELECT_USER, payload: id });
+const selectUserAction = (user) => ({ type: SELECT_USER, payload: user });
 const updateUserAction = (user) => ({ type: UPDATE_USER, payload: user });
 const deleteUserAction = (id) => ({ type: DELETE_USER, payload: id });
 
