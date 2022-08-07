@@ -55,7 +55,7 @@ export default function RegisterForm() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Submiting");
+    // console.log("Submiting");
     for (let i in user.errors) {
       if (user.errors[i]) {
         return;

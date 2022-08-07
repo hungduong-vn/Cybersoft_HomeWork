@@ -6,7 +6,7 @@ import { deleteUserAction, selectUserAction } from "../../Store/actions/user";
 export default function UserManagement(props) {
   let users = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
-  const [userList, setUserList] = useState([...users.userList]);
+  const [state, setState] = useState({ keyword: "", type: "All" });
   const handleEdit = (user) => {
     // console.log(user);
     dispatch(selectUserAction(user));
@@ -14,30 +14,48 @@ export default function UserManagement(props) {
   const handleDelete = (user) => {
     dispatch(deleteUserAction(user.id));
   };
-  const handleSearch = (event) => {
-    const keyword = event.target.value;
-    if (keyword) {
-      setUserList(
-        users.userList.filter(
-          (ele) =>
-            ele.fullName
-              .toLowerCase()
-              .trim()
-              .indexOf(keyword.toLowerCase().trim()) !== -1
-        )
-      );
-    } else {
-      setUserList([...users.userList]);
-    }
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setState({ ...state, [name]: value });
+    // console.log(state);
   };
-  const handleFilterByType = (event) => {
-    // console.log(event.target.value);
-    const type = event.target.value;
-    if (type !== "All") {
-      setUserList(users.userList.filter((ele) => ele.type === type));
-    } else {
-      setUserList([...users.userList]);
+  const renderList = () => {
+    let data = users.userList.filter(
+      (ele) =>
+        ele.fullName
+          .toLowerCase()
+          .trim()
+          .indexOf(state.keyword.toLowerCase().trim()) !== -1
+    );
+    if (state.type !== "All") {
+      data = data.filter((ele) => ele.type === state.type);
     }
+    return data.map((ele, id) => {
+      return (
+        <tr key={ele.id} className={id % 2 ? "bg-light" : ""}>
+          <td>{id + 1}</td>
+          <td>{ele.username}</td>
+          <td>{ele.fullName}</td>
+          <td>{ele.email}</td>
+          <td>{ele.phoneNumber}</td>
+          <td>{ele.type}</td>
+          <td>
+            <button
+              className="btn btn-info mr-2"
+              onClick={() => handleEdit(ele)}
+            >
+              EDIT
+            </button>
+            <button
+              className="btn btn-danger"
+              onClick={() => handleDelete(ele)}
+            >
+              DELETE
+            </button>
+          </td>
+        </tr>
+      );
+    });
   };
   return (
     <div className="card p-0 mt-3">
@@ -46,7 +64,8 @@ export default function UserManagement(props) {
         <div className="col-4">
           <div className="form-group mb-0">
             <input
-              onChange={handleSearch}
+              name="keyword"
+              onChange={handleChange}
               type="text"
               placeholder="Search by full name..."
               className="form-control"
@@ -55,7 +74,11 @@ export default function UserManagement(props) {
         </div>
         <div className="col-3 ml-auto">
           <div className="form-group mb-0">
-            <select className="form-control" onChange={handleFilterByType}>
+            <select
+              className="form-control"
+              onChange={handleChange}
+              name="type"
+            >
               <option>All</option>
               <option>Client</option>
               <option>Admin</option>
@@ -76,34 +99,7 @@ export default function UserManagement(props) {
               <th></th>
             </tr>
           </thead>
-          <tbody>
-            {userList.map((ele, id) => {
-              return (
-                <tr key={ele.id} className={id % 2 ? "bg-light" : ""}>
-                  <td>{id + 1}</td>
-                  <td>{ele.username}</td>
-                  <td>{ele.fullName}</td>
-                  <td>{ele.email}</td>
-                  <td>{ele.phoneNumber}</td>
-                  <td>{ele.type}</td>
-                  <td>
-                    <button
-                      className="btn btn-info mr-2"
-                      onClick={() => handleEdit(ele)}
-                    >
-                      EDIT
-                    </button>
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => handleDelete(ele)}
-                    >
-                      DELETE
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
+          <tbody>{renderList()}</tbody>
         </table>
       </div>
     </div>
