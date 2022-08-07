@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUserAction, selectUserAction } from "../../Store/actions/user";
 // import { userReducer } from "../../Store/reducers/userReducer";
@@ -6,12 +6,29 @@ import { deleteUserAction, selectUserAction } from "../../Store/actions/user";
 export default function UserManagement(props) {
   let users = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
+  const [userList, setUserList] = useState([...users.userList]);
   const handleEdit = (user) => {
     // console.log(user);
     dispatch(selectUserAction(user));
   };
   const handleDelete = (user) => {
     dispatch(deleteUserAction(user.id));
+  };
+  const handleSearch = (event) => {
+    const keyword = event.target.value;
+    if (keyword) {
+      setUserList(
+        users.userList.filter(
+          (ele) =>
+            ele.fullName
+              .toLowerCase()
+              .trim()
+              .indexOf(keyword.toLowerCase().trim()) !== -1
+        )
+      );
+    } else {
+      setUserList([...users.userList]);
+    }
   };
   return (
     <div className="card p-0 mt-3">
@@ -20,6 +37,7 @@ export default function UserManagement(props) {
         <div className="col-4">
           <div className="form-group mb-0">
             <input
+              onChange={handleSearch}
               type="text"
               placeholder="Search by full name..."
               className="form-control"
@@ -50,7 +68,7 @@ export default function UserManagement(props) {
             </tr>
           </thead>
           <tbody>
-            {users.userList.map((ele, id) => {
+            {userList.map((ele, id) => {
               return (
                 <tr key={ele.id} className={id % 2 ? "bg-light" : ""}>
                   <td>{id + 1}</td>
