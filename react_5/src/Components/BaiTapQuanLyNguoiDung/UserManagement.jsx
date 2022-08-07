@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUserAction } from "../../Store/actions/user";
+import { deleteUserAction, selectUserAction } from "../../Store/actions/user";
 // import { userReducer } from "../../Store/reducers/userReducer";
 
 export default function UserManagement(props) {
@@ -9,6 +9,9 @@ export default function UserManagement(props) {
   const handleEdit = (user) => {
     // console.log(user);
     dispatch(selectUserAction(user));
+  };
+  const handleDelete = (user) => {
+    dispatch(deleteUserAction(user.id));
   };
   return (
     <div className="card p-0 mt-3">
@@ -63,7 +66,12 @@ export default function UserManagement(props) {
                     >
                       EDIT
                     </button>
-                    <button className="btn btn-danger">DELETE</button>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => handleDelete(ele)}
+                    >
+                      DELETE
+                    </button>
                   </td>
                 </tr>
               );
