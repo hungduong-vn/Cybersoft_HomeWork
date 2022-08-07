@@ -30,6 +30,15 @@ export default function UserManagement(props) {
       setUserList([...users.userList]);
     }
   };
+  const handleFilterByType = (event) => {
+    // console.log(event.target.value);
+    const type = event.target.value;
+    if (type !== "All") {
+      setUserList(users.userList.filter((ele) => ele.type === type));
+    } else {
+      setUserList([...users.userList]);
+    }
+  };
   return (
     <div className="card p-0 mt-3">
       <div className="card-header font-weight-bold">USER MANAGEMENT</div>
@@ -46,7 +55,7 @@ export default function UserManagement(props) {
         </div>
         <div className="col-3 ml-auto">
           <div className="form-group mb-0">
-            <select className="form-control">
+            <select className="form-control" onChange={handleFilterByType}>
               <option>All</option>
               <option>Client</option>
               <option>Admin</option>
