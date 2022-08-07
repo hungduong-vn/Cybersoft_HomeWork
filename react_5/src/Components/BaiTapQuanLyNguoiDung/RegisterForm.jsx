@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addUserAction } from "../../Store/actions/user";
+import { addUserAction, updateUserAction } from "../../Store/actions/user";
 const DEFAULT_USER = {
   id: "",
   username: "",
@@ -23,7 +23,7 @@ export default function RegisterForm() {
   const [isReset, setIsReset] = useState(false);
   //AFTER SUCCESSFULLY SUBMIT/UPDATE -> RESET FORM
   useEffect(() => {
-    console.log("Reset");
+    // console.log("Reset");
     // console.log(formRef.current.checkValidity());
     setIsReset(false);
   }, [isReset]);
@@ -66,11 +66,12 @@ export default function RegisterForm() {
     }
     if (props.selectedUser) {
       //EDIT & UPDATE
+      dispatch(updateUserAction(user.value));
     } else {
       //ADD
       dispatch(addUserAction(user.value));
-      setIsReset(true);
     }
+    setIsReset(true);
     setUser(DEFAULT_STATE);
   };
 

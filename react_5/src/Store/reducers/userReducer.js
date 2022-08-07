@@ -41,6 +41,10 @@ export const userReducer = (state = DEFAULT_STATE, { type, payload }) => {
     case DELETE_USER:
       return { ...state };
     case UPDATE_USER:
+      state.userList = state.userList.map((ele) =>
+        ele.id === payload.id ? payload : ele
+      );
+      state.selectedUser = null;
       return { ...state };
     default:
       return state;
